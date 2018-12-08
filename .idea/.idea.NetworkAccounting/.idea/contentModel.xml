@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="\app" t="IncludeRecursive" />
+    <e p="\b1b4ddd4" t="IncludeRecursive" />
+    <e p="C:\Users\dl\.Rider2018.2\config\consoles\db" t="IncludeRecursive" />
+    <e p="C:\Users\dl\.Rider2018.2\config\extensions" t="IncludeRecursive" />
+    <e p="C:\Users\dl\.Rider2018.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\dl\.Rider2018.2\system\resharper-host\local\Transient\ReSharperHost\v182\SolutionCaches\_NetworkAccounting.-1727993867.00" t="ExcludeRecursive" />
+    <e p="D:\projects\microservice\NetworkAccounting" t="IncludeFlat">
+      <e p="NetworkAccounting.sln" t="IncludeFlat" />
+      <e p="NetworkAccounting.Web" t="IncludeRecursive">
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Controllers" t="Include">
+          <e p="NetworkController.cs" t="Include" />
+          <e p="PoolController.cs" t="Include" />
+        </e>
+        <e p="Model" t="Include">
+          <e p="AddNetwork.cs" t="Include" />
+          <e p="Network.cs" t="Include" />
+          <e p="Pool.cs" t="Include" />
+        </e>
+        <e p="NetworkAccounting.Web.csproj" t="IncludeRecursive" />
+        <e p="networks.db" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.1" t="Include">
+              <e p="NetworkAccounting.Web.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="Service" t="Include">
+          <e p="NetworkService.cs" t="Include" />
+          <e p="PoolService.cs" t="Include" />
+        </e>
+        <e p="Startup.cs" t="Include" />
+        <e p="Store" t="Include">
+          <e p="DbStore.cs" t="Include" />
+          <e p="NetworkStore.cs" t="Include" />
+          <e p="PoolStore.cs" t="Include" />
+        </e>
+        <e p="wwwroot" t="Include" />
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
