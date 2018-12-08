@@ -31,8 +31,7 @@ Content-Type: application/json
 
 {
   "NetworkAddress":3232238592,
-  "Size":24,
-  "PoolId":2
+  "Description":"First lease"
 }
 
 

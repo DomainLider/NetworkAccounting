@@ -55,7 +55,7 @@ namespace NetworkAccounting.Web.Store
             using (var db = CreateConnection())
             {
                 db.Open();
-                db.ExecuteScalar("UPDATE network SET isBusy=0 WHERE NetworkAddress=@id", new {Id=id});                
+                db.ExecuteScalar("UPDATE network SET description=NULL,isBusy=0 WHERE NetworkAddress=@id", new {Id=id});                
             }   
         }
         
