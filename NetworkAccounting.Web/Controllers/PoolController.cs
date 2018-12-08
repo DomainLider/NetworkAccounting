@@ -26,15 +26,17 @@ namespace NetworkAccounting.Web.Controllers
         }
 
         [HttpPost]
-        public void Post([FromBody] Pool pool)
+        public IActionResult Post([FromBody] Pool pool)
         {
             try
             {
-                _poolService.AddPool(pool);
+                return new JsonResult(_poolService.AddPool(pool));
             }
             catch
             {
+                return BadRequest();
             }
+            
 
         }
 

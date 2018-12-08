@@ -4,41 +4,19 @@
 # * 'gtrp' and 'gtr' create a GET request with or without query parameters;
 # * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
 # * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
-
-GET http://localhost:5000/api/network
+GET https://localhost:5001/api/pool
 Accept: application/json
 
 ###
-
-POST https://localhost:5001/api/network
+POST https://localhost:5001/api/pool
 Content-Type: application/json
 
 {
-  "Address":"192.168.15.0",
-  "Size":24,
-  "PoolId":1
+  "Name":"WIFI_POOL",
+  "Description":"Для юзеров вай-фай"
 }
 
 ###
-
-GET https://localhost:5001/api/network/find/24/2
-Accept: application/json
-
-###
-
-POST https://localhost:5001/api/network/lease
-Content-Type: application/json
-
-{
-  "NetworkAddress":3232238592,
-  "Size":24,
-  "PoolId":2
-}
-
-
-###
-
-POST https://localhost:5001/api/network/release/3232238592
-Content-Type: application/json
+DELETE https://localhost:5001/api/pool/7
 
 ###

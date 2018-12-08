@@ -18,9 +18,8 @@ namespace NetworkAccounting.Web.Store
             }
         }
 
-        public void AddNetwork(long address,int size,int poolId)
+        public Network AddNetwork(ulong address,int size,int poolId)
         {
-            //TODO: Check network is valid
             using (var db = CreateConnection())
             {
                 db.Open();
@@ -28,18 +27,46 @@ namespace NetworkAccounting.Web.Store
                 {
                     NetworkAddress=address, Size=size, PoolId=poolId
                 });
+                return GetNetwork(address);
             }
         }
 
-        public Network FindNetwork(int size)
+        public Network GetNetwork(ulong id)
         {
             using (var db = CreateConnection())
             {
                 db.Open();
-                Network network=db.QuerySingle<Network>("SELECT * FROM network WHERE Size=@size LIMIT 1", new {size});
+                Network network=db.QuerySingleOrDefault<Network>($"SELECT * FROM network WHERE NetworkAddress={id}");
                 return network;
             }
         }
 
+        public IEnumerable<Network> GetNetworksBySize(int size,int poolId)
+        {
+            using (var db = CreateConnection())
+            {
+                db.Open();
+                return db.Query<Network>("SELECT * FROM network WHERE Size=@size and PoolId=@PoolId", new {size,poolId});                
+            }
+        }
+
+        public void ReleaseNetwork(ulong id)
+        {
+            using (var db = CreateConnection())
+            {
+                db.Open();
+                db.ExecuteScalar("UPDATE network SET isBusy=0 WHERE NetworkAddress=@id", new {Id=id});                
+            }   
+        }
+        
+        public void LeaseNetwork(Network network)
+        {
+            using (var db = CreateConnection())
+            {
+                db.Open();
+                db.ExecuteScalar("UPDATE network SET description=@Description,isBusy=1 WHERE NetworkAddress=@Id", new {Id=network.NetworkAddress,network.Description});                
+            }   
+        }
+        
     }
 }

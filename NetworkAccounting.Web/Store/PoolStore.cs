@@ -20,16 +20,26 @@ namespace NetworkAccounting.Web.Store
             }
         }
 
-        public void AddPool(Pool pool)
+        public Pool Get(int id)
         {
             using (var db = CreateConnection())
             {
                 db.Open();
-                db.ExecuteScalar("INSERT INTO pool(Name,Description) VALUES (@Name,@Description);", new
+                return db.QuerySingle<Pool>("SELECT * FROM pool WHERE Id=@Id", new {Id = id});
+            }
+        }
+
+        public Pool AddPool(Pool pool)
+        {
+            using (var db = CreateConnection())
+            {
+                db.Open();
+                int id=db.ExecuteScalar<int>("INSERT INTO pool(Name,Description) VALUES (@Name,@Description);SELECT last_insert_rowid();", new
                 {
-                    Name = pool.Name,
-                    Description = pool.Description
+                    pool.Name,
+                    pool.Description
                 });
+                return Get(id);
             }
         }
 

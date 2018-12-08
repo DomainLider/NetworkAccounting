@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using NetworkAccounting.Web.Model;
 using NetworkAccounting.Web.Store;
@@ -26,16 +27,15 @@ namespace NetworkAccounting.Web.Service
         public Network AddToPool(AddNetwork network)
         {
             IPAddress ipNetwork;
-            if (IPAddress.TryParse(network.NetworkAddress, out ipNetwork))
+            if (IPAddress.TryParse(network.Address, out ipNetwork))
             {
 
                 var bytes = ipNetwork.GetAddressBytes().Reverse().ToArray();
-                long address = BitConverter.ToUInt32(bytes, 0);
-                _networkStore.AddNetwork(address, network.Size,network.PoolId);
-                return null;
+                ulong address = BitConverter.ToUInt32(bytes, 0);
+                return _networkStore.AddNetwork(address, network.Size,network.PoolId);
             }
 
-            throw new ArgumentException($"Невозможно преобразовать {network.NetworkAddress} в IP адрес");
+            throw new ArgumentException($"Невозможно преобразовать {network.Address} в IP адрес");
         }
 
         /// <summary>
@@ -52,21 +52,83 @@ namespace NetworkAccounting.Web.Service
         /// <param name="network"></param>
         public void LeaseNetwork(Network network)
         {
-            
+            _networkStore.LeaseNetwork(network);
         }
 
+        /// <summary>
+        /// Освободить сеть
+        /// </summary>
+        /// <param name="id"></param>
+        public void ReleaseNetwork(ulong id) => _networkStore.ReleaseNetwork(id);
+        
         /// <summary>
         /// Найти свободную сеть
         /// </summary>
         /// <param name="size"></param>
+        /// <param name="poolId"></param>
         /// <returns></returns>
-        public Network GetFreeNetwork(byte size) => null;
-        public Network GetNetwork(ulong id) => null;
+        public Network GetFreeNetwork(int size,int poolId)
+        {
+            var networks=_networkStore.GetNetworksBySize(size,poolId).Where(n=>!n.IsBusy);
+            Network network = null;
+            int networksSize = networks.Count();
+            if (networksSize>0)
+            {
+                int index = new Random().Next(networksSize - 1);
+                network = networks.ElementAt(index);
+            }
+            else
+            {
+                //splitting
+            }
+
+            return FillUserAddress(network);
+        }
+
+        /// <summary>
+        /// Сеть по Id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public Network GetNetwork(ulong id)
+        {
+            var network=_networkStore.GetNetwork(id);
+            return FillUserAddress(network);
+        }
+
         public Network GetParentNetwork(ulong ip) => null;
 
-        
-        public IEnumerable<Network> ListNetworks() => _networkStore.ListNetworks();
-        public Network FindNetwork(int size) => _networkStore.FindNetwork(size);
+
+        /// <summary>
+        /// Список сетей
+        /// </summary>
+        /// <returns></returns>
+        public Dictionary<ulong,Network> ListNetworks()
+        {
+            var networks = _networkStore.ListNetworks();
+            networks.ToList().ForEach(n=>n.Address=ConvertAddressToString(n.NetworkAddress));
+            var groupedNetworks = networks.GroupBy(n=>n.NetworkAddress).ToDictionary(n=>n.Key,n=>n.ToList().First());
+            
+            return groupedNetworks;
+        }
+                
+        /// <summary>
+        /// Конвертировать IPAddress в строку
+        /// </summary>
+        /// <param name="naddress"></param>
+        /// <returns></returns>
+        public static string ConvertAddressToString(ulong naddress)
+        {
+            var bytes = BitConverter.GetBytes(naddress).Take(4).Reverse();
+            IPAddress address=new IPAddress(bytes.ToArray());
+            return address.ToString();
+        }
+
+        public static Network FillUserAddress(Network network)
+        {
+            network.Address = ConvertAddressToString(network.NetworkAddress);
+            return network;
+        }
 
     }
 }
