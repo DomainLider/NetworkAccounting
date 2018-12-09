@@ -76,10 +76,66 @@
             </e>
             <e p="node_modules" t="Include">
               <e p=".cache" t="Include">
+                <e p="@babel" t="Include" />
                 <e p="babel-loader" t="Include">
-                  <e p="01f891eb2ee329de832ab457bc3cff0d.json.gz" t="Include" />
-                  <e p="097c6a0fc688e89c1b1674dabbba9d00.json.gz" t="Include" />
-                  <e p="210fca4243d258a1b52daefbd255695e.json.gz" t="Include" />
+                  <e p="046df8be42fdc5fba6572d0ce36ae79a.json.gz" t="Include" />
+                  <e p="04746e2cbc6bba1d7a76b0e97cff0fc6.json.gz" t="Include" />
+                  <e p="0b3e3ef95ee7358436ded6b638c18da7.json.gz" t="Include" />
+                  <e p="0dcfb000b2cbc36a8b98c610f7e6d851.json.gz" t="Include" />
+                  <e p="14bddfd565092aae3805303d0a50be5c.json.gz" t="Include" />
+                  <e p="19c69c47bec52e0cab09e90a29f8ce8f.json.gz" t="Include" />
+                  <e p="1e1ab794c18694469873657df88163ac.json.gz" t="Include" />
+                  <e p="2160b8dac8387d881b18b48384a36d6f.json.gz" t="Include" />
+                  <e p="290c1b75f3505c4f0d25df97a5eda171.json.gz" t="Include" />
+                  <e p="2cad2532d078fddabafa373cd558a396.json.gz" t="Include" />
+                  <e p="35ffc4e3aebd1b34a2e046eb89992426.json.gz" t="Include" />
+                  <e p="38b7a1a54eb4032fdb5bfc5a23240c9d.json.gz" t="Include" />
+                  <e p="3a6419f9c3739638e84cd9a71b3e72db.json.gz" t="Include" />
+                  <e p="3b01d9affc36d3853e589dc0bcb75e23.json.gz" t="Include" />
+                  <e p="4432cf06d086682b1c8c901f642b7b29.json.gz" t="Include" />
+                  <e p="44d8e2658147c71dfa57cc511cf2c277.json.gz" t="Include" />
+                  <e p="458844cf2f6d5b1102479e0c87ebcbb7.json.gz" t="Include" />
+                  <e p="4b3e3a38bfcd76663f380e38325ecfc6.json.gz" t="Include" />
+                  <e p="4bb21e86b2ae7fa8fa4a34b9c35b71e8.json.gz" t="Include" />
+                  <e p="56c06dd56464481402405c067cff8319.json.gz" t="Include" />
+                  <e p="6629d81c4b99c5c14174f6936a284957.json.gz" t="Include" />
+                  <e p="69e507f519fef9178c0fdad9d0c6e30b.json.gz" t="Include" />
+                  <e p="6c4b7fb5a5868777779a15fc4fce6111.json.gz" t="Include" />
+                  <e p="733ad99b206a2bb15c0902d7808a0645.json.gz" t="Include" />
+                  <e p="7678d660263cf064fb5ae547cf2419a9.json.gz" t="Include" />
+                  <e p="7a7ea401d3000e2daf1f7e413dbca4b1.json.gz" t="Include" />
+                  <e p="8492645ea49197b474a110100c05f1b7.json.gz" t="Include" />
+                  <e p="851aac1239e1bf1effa269958ebf9826.json.gz" t="Include" />
+                  <e p="88c073104af62c261063acc947a80b2f.json.gz" t="Include" />
+                  <e p="8b0f897fc31a1d05675e5e56a8941c29.json.gz" t="Include" />
+                  <e p="8c560f3aca2d04e0b2411ac38fddea3a.json.gz" t="Include" />
+                  <e p="8f9b9d78aefeb5e29e00d3406f42fb08.json.gz" t="Include" />
+                  <e p="90a56925474d30381b6d7ab428acbdc6.json.gz" t="Include" />
+                  <e p="94953a425fc90300ec25cbfbcb6be53d.json.gz" t="Include" />
+                  <e p="95e7df68e23b4d24fd5ccd218b94f891.json.gz" t="Include" />
+                  <e p="96f51c16dfa8bdd0fe7a5518c6e6e901.json.gz" t="Include" />
+                  <e p="9de89083733aeaa7a91e63be1585cc6c.json.gz" t="Include" />
+                  <e p="9ed759fe0d1ca0a44ff6df1d35a8db9c.json.gz" t="Include" />
+                  <e p="a1431a0786854cef01429ea834db5e42.json.gz" t="Include" />
+                  <e p="a3717e39ef68a6a3600e587c1f470115.json.gz" t="Include" />
+                  <e p="aa1b95e64ea696325f1ec3fc93327cd4.json.gz" t="Include" />
+                  <e p="afe39492483b7bb5ecfd7f06590e06fc.json.gz" t="Include" />
+                  <e p="b1255771dba95139bfbf95962bc1d199.json.gz" t="Include" />
+                  <e p="b3c72aa74f280cc820eccdd7acc899f2.json.gz" t="Include" />
+                  <e p="bda44c5b9a840d108b52a35769597c88.json.gz" t="Include" />
+                  <e p="c2f5d62bcac6cdf3328bf1ec0be479ca.json.gz" t="Include" />
+                  <e p="c53ad6c87ab67f6f9f450f667a5f6e74.json.gz" t="Include" />
+                  <e p="c950b7100f667b2aeeb13a753c7fad42.json.gz" t="Include" />
+                  <e p="cbbbcd88de9dad7356b391ed420fbf81.json.gz" t="Include" />
+                  <e p="e554b320c6cad0a78da9c9ed9fa737f6.json.gz" t="Include" />
+                  <e p="e97a3fa6c28976857abca78d87f7c82f.json.gz" t="Include" />
+                  <e p="ee0d5c1533be0182fc6df4976575d8de.json.gz" t="Include" />
+                  <e p="ef95542f9b8873d1cd212158de23d479.json.gz" t="Include" />
+                  <e p="f142649b1d25dcc4b1a5ad22f07ad8bb.json.gz" t="Include" />
+                  <e p="f22ce95c0aba945dedffae52dee1d27b.json.gz" t="Include" />
+                  <e p="f2d54b94d7f76ac7eb68fad63c82848a.json.gz" t="Include" />
+                  <e p="fc41a45d0a383657f7fb05ae96f10810.json.gz" t="Include" />
+                  <e p="fcc06e4ac28c32ab415f4e1534b1f1c0.json.gz" t="Include" />
                 </e>
               </e>
               <e p="@types" t="IncludeRecursive">
@@ -87,6 +143,60 @@
                 <e p="prop-types" t="IncludeRecursive" />
                 <e p="react" t="IncludeRecursive" />
                 <e p="react-router" t="IncludeRecursive" />
+              </e>
+              <e p="axios" t="IncludeRecursive">
+                <e p="CHANGELOG.md" t="Include" />
+                <e p="dist" t="Include">
+                  <e p="axios.js" t="Include" />
+                  <e p="axios.map" t="Include" />
+                  <e p="axios.min.js" t="Include" />
+                  <e p="axios.min.map" t="Include" />
+                </e>
+                <e p="index.d.ts" t="Include" />
+                <e p="index.js" t="Include" />
+                <e p="lib" t="Include">
+                  <e p="adapters" t="Include">
+                    <e p="http.js" t="Include" />
+                    <e p="README.md" t="Include" />
+                    <e p="xhr.js" t="Include" />
+                  </e>
+                  <e p="axios.js" t="Include" />
+                  <e p="cancel" t="Include">
+                    <e p="Cancel.js" t="Include" />
+                    <e p="CancelToken.js" t="Include" />
+                    <e p="isCancel.js" t="Include" />
+                  </e>
+                  <e p="core" t="Include">
+                    <e p="axios.js" t="Include" />
+                    <e p="createError.js" t="Include" />
+                    <e p="dispatchRequest.js" t="Include" />
+                    <e p="enhanceError.js" t="Include" />
+                    <e p="InterceptorManager.js" t="Include" />
+                    <e p="README.md" t="Include" />
+                    <e p="settle.js" t="Include" />
+                    <e p="transformData.js" t="Include" />
+                  </e>
+                  <e p="defaults.js" t="Include" />
+                  <e p="helpers" t="Include">
+                    <e p="bind.js" t="Include" />
+                    <e p="btoa.js" t="Include" />
+                    <e p="buildURL.js" t="Include" />
+                    <e p="combineURLs.js" t="Include" />
+                    <e p="cookies.js" t="Include" />
+                    <e p="deprecatedMethod.js" t="Include" />
+                    <e p="isAbsoluteURL.js" t="Include" />
+                    <e p="isURLSameOrigin.js" t="Include" />
+                    <e p="normalizeHeaderName.js" t="Include" />
+                    <e p="parseHeaders.js" t="Include" />
+                    <e p="README.md" t="Include" />
+                    <e p="spread.js" t="Include" />
+                  </e>
+                  <e p="utils.js" t="Include" />
+                </e>
+                <e p="LICENSE" t="Include" />
+                <e p="package.json" t="Include" />
+                <e p="README.md" t="Include" />
+                <e p="UPGRADE_GUIDE.md" t="Include" />
               </e>
               <e p="babel-eslint" t="IncludeRecursive" />
               <e p="csstype" t="IncludeRecursive" />
@@ -97,7 +207,66 @@
               <e p="eslint-plugin-jsx-a11y" t="IncludeRecursive" />
               <e p="eslint-plugin-react" t="IncludeRecursive" />
               <e p="husky" t="IncludeRecursive" />
+              <e p="immutability-helper" t="IncludeRecursive" />
+              <e p="immutable" t="IncludeRecursive">
+                <e p="dist" t="Include">
+                  <e p="immutable.es.js" t="Include" />
+                </e>
+              </e>
               <e p="lint-staged" t="IncludeRecursive" />
+              <e p="lodash" t="IncludeRecursive" />
+              <e p="rc-editor-core" t="Include">
+                <e p="node_modules" t="Include">
+                  <e p="immutable" t="Include">
+                    <e p="contrib" t="Include">
+                      <e p="cursor" t="Include">
+                        <e p="__tests__" t="Include">
+                          <e p="Cursor.ts.skip" t="Include" />
+                        </e>
+                        <e p="index.d.ts" t="Include" />
+                        <e p="index.js" t="Include" />
+                        <e p="README.md" t="Include" />
+                      </e>
+                    </e>
+                    <e p="dist" t="Include">
+                      <e p="immutable-nonambient.d.ts" t="Include" />
+                      <e p="immutable.d.ts" t="Include" />
+                      <e p="immutable.js" t="Include" />
+                      <e p="immutable.js.flow" t="Include" />
+                      <e p="immutable.min.js" t="Include" />
+                    </e>
+                    <e p="LICENSE" t="Include" />
+                    <e p="package.json" t="Include" />
+                    <e p="README.md" t="Include" />
+                  </e>
+                </e>
+              </e>
+              <e p="rc-editor-mention" t="Include">
+                <e p="node_modules" t="Include">
+                  <e p="immutable" t="Include">
+                    <e p="contrib" t="Include">
+                      <e p="cursor" t="Include">
+                        <e p="__tests__" t="Include">
+                          <e p="Cursor.ts.skip" t="Include" />
+                        </e>
+                        <e p="index.d.ts" t="Include" />
+                        <e p="index.js" t="Include" />
+                        <e p="README.md" t="Include" />
+                      </e>
+                    </e>
+                    <e p="dist" t="Include">
+                      <e p="immutable-nonambient.d.ts" t="Include" />
+                      <e p="immutable.d.ts" t="Include" />
+                      <e p="immutable.js" t="Include" />
+                      <e p="immutable.js.flow" t="Include" />
+                      <e p="immutable.min.js" t="Include" />
+                    </e>
+                    <e p="LICENSE" t="Include" />
+                    <e p="package.json" t="Include" />
+                    <e p="README.md" t="Include" />
+                  </e>
+                </e>
+              </e>
               <e p="redux" t="IncludeRecursive" />
               <e p="umi" t="IncludeRecursive" />
               <e p="umi-plugin-react" t="IncludeRecursive" />
@@ -119,17 +288,38 @@
               <e p="pages" t="Include">
                 <e p="index.css" t="Include" />
                 <e p="index.js" t="Include" />
-                <e p="networks.css" t="Include" />
-                <e p="networks.js" t="Include" />
-                <e p="pools.css" t="Include" />
-                <e p="pools.js" t="Include" />
+                <e p="networks" t="Include">
+                  <e p="components" t="Include">
+                    <e p="NetworkTable.js" t="Include" />
+                  </e>
+                  <e p="index.js" t="Include" />
+                  <e p="models" t="Include">
+                    <e p="model.js" t="Include" />
+                  </e>
+                  <e p="networks.css" t="Include" />
+                  <e p="services" t="Include">
+                    <e p="networkService.js" t="Include" />
+                  </e>
+                </e>
+                <e p="pools" t="Include">
+                  <e p="components" t="Include">
+                    <e p="PoolList.js" t="Include" />
+                  </e>
+                  <e p="index.js" t="Include" />
+                  <e p="models" t="Include">
+                    <e p="model.js" t="Include" />
+                  </e>
+                  <e p="pools.css" t="Include" />
+                  <e p="services" t="Include">
+                    <e p="poolService.js" t="Include" />
+                  </e>
+                </e>
               </e>
             </e>
             <e p="yarn.lock" t="Include" />
           </e>
         </e>
       </e>
-      <e p="node_modules\webpack-chain" t="IncludeRecursive" />
       <e p="packages" t="ExcludeRecursive" />
     </e>
   </component>
