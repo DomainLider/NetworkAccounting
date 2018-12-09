@@ -1,4 +1,4 @@
-import {ListNetworks} from '../services/networkService'
+import {GetFreeNetwork, LeaseNetwork, ListNetworks} from '../services/networkService'
 
 export default {
   namespace: 'networkList',
@@ -13,6 +13,17 @@ export default {
        const response=yield call(ListNetworks);
        yield put({type:'updateNetworks',networks:response.data});
     },
+
+    *lease({payload:{size,poolId}},{put,call}){
+      const response=yield call(GetFreeNetwork,{size,poolId});
+      if (response.status!==200) return ; //Error get Free
+      const network=response.data;
+      if (!!!network) return ;// No free network
+      network.description=`Leased ${new Date().toGMTString()}`;
+      const leaseResponse=yield call(LeaseNetwork,network);
+      if (leaseResponse.status!==200) return ; //Error in lease
+      yield put({type:'load'});
+    }
   },
   subscriptions:{
     setup({ dispatch, history }) {

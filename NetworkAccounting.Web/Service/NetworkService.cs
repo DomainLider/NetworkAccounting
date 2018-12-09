@@ -73,16 +73,17 @@ namespace NetworkAccounting.Web.Service
             if (networks.Length > 0)
             {
                 var network = networks.First();
-                    //splitting                    
-                    for (int idx = 0; idx < size - network.Size; idx++)
-                    {
-                        //transaction required
-                        network.Size = (byte)(network.Size + 1);
-                        _networkStore.ChangeNetwork(network);
-                        _networkStore.AddNetwork(network.NetworkAddress + (ulong)Math.Pow(2,32-network.Size), network.Size, poolId);
-                        network = _networkStore.GetNetwork(network.NetworkAddress);
-                    }
-                    return network;                
+                    //splitting
+                int count = size - network.Size;
+                for (int idx = 0; idx < count; idx++)
+                {
+                    //TODO: transaction required
+                    network.Size = (byte)(network.Size + 1);
+                    _networkStore.ChangeNetwork(network);
+                    _networkStore.AddNetwork(network.NetworkAddress + (ulong)Math.Pow(2,32-network.Size), network.Size, poolId);
+                    network = _networkStore.GetNetwork(network.NetworkAddress);
+                }
+                return network;                
             }
             //Not found
             return null;
