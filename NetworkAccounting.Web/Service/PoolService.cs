@@ -7,15 +7,19 @@ namespace NetworkAccounting.Web.Service
 {
     public class PoolService
     {
-        private readonly PoolStore _poolService=new PoolStore();
+        private readonly PoolStore _poolStore=new PoolStore();
 
+        public PoolService(PoolStore poolStore)
+        {
+            this._poolStore = poolStore;
+        }
         /// <summary>
         /// Выбрать все пулы
         /// </summary>
         /// <returns></returns>
         public Dictionary<int,Pool> ListPools()
         {
-            IEnumerable<Pool> pools = _poolService.ListPools();
+            IEnumerable<Pool> pools = _poolStore.ListPools();
             var groupedPools = pools.GroupBy(p=>p.Id)
                 .ToDictionary(grouping => grouping.Key,grouping => grouping.FirstOrDefault());
             return groupedPools;
@@ -25,12 +29,12 @@ namespace NetworkAccounting.Web.Service
         /// Добавить пул
         /// </summary>
         /// <param name="pool"></param>
-        public Pool AddPool(Pool pool) => _poolService.AddPool(pool);
+        public Pool AddPool(Pool pool) => _poolStore.AddPool(pool);
         
         /// <summary>
         /// Удалить пул
         /// </summary>
         /// <param name="poolId"></param>
-        public void RemovePool(int poolId) => _poolService.RemovePool(poolId);
+        public void RemovePool(int poolId) => _poolStore.RemovePool(poolId);
     }
 }

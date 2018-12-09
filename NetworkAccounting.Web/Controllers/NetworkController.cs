@@ -14,9 +14,9 @@ namespace NetworkAccounting.Web.Controllers
     {
         private NetworkService _networkService;
 
-        public NetworkController()
+        public NetworkController(NetworkService networkService)
         {
-            _networkService=new NetworkService();
+            this._networkService=networkService;
         }
         
         [HttpGet]

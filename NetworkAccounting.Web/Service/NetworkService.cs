@@ -13,9 +13,9 @@ namespace NetworkAccounting.Web.Service
     {
         private NetworkStore _networkStore = new NetworkStore();
 
-        public NetworkService()
+        public NetworkService(NetworkStore networkStore)
         {
-
+            this._networkStore = networkStore;
         }
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace NetworkAccounting.Web.Service
         /// <returns></returns>
         public Network GetFreeNetwork(int size,int poolId)
         {
-            var networks = _networkStore.ListNetworks().Where(n=>!n.IsBusy&&n.Size<=size&&n.PoolId==poolId).OrderBy(n=>n.Size).ToArray();
+            var networks = _networkStore.ListNetworks().Where(n=>!n.IsBusy&&n.Size<=size&&n.PoolId==poolId).OrderByDescending(n=>n.Size).ToArray();
             if (networks.Length > 0)
             {
                 var network = networks.First();

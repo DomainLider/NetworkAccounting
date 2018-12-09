@@ -14,9 +14,9 @@ namespace NetworkAccounting.Web.Controllers
     {
         private PoolService _poolService;
 
-        public PoolController()
+        public PoolController(PoolService poolService)
         {
-            this._poolService=new PoolService();
+            this._poolService=poolService;
         }
         
         [HttpGet]
