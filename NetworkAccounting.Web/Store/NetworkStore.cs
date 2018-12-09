@@ -67,6 +67,16 @@ namespace NetworkAccounting.Web.Store
                 db.ExecuteScalar("UPDATE network SET description=@Description,isBusy=1 WHERE NetworkAddress=@Id", new {Id=network.NetworkAddress,network.Description});                
             }   
         }
+
+        public void ChangeNetwork(Network network)
+        {
+            using (var db = CreateConnection())
+            {
+                db.Open();
+                db.ExecuteScalar("UPDATE network SET description=@Description,poolId=@PoolId,size=@Size WHERE NetworkAddress=@NetworkAddress", 
+                    new {network.NetworkAddress,network.Description,network.PoolId,network.Size});                
+            }
+        }
         
     }
 }

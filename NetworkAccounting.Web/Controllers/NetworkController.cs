@@ -16,7 +16,7 @@ namespace NetworkAccounting.Web.Controllers
 
         public NetworkController()
         {
-            this._networkService=new NetworkService();
+            _networkService=new NetworkService();
         }
         
         [HttpGet]
@@ -29,6 +29,12 @@ namespace NetworkAccounting.Web.Controllers
         public IActionResult GetById(uint id)
         {
             return new JsonResult(_networkService.GetNetwork(id));
+        }
+
+        [HttpPut]
+        public void Modify(Network network)
+        {
+            _networkService.ChangeNetwork(network);
         }
         
         [HttpGet("find/{size}/{poolId}")]
@@ -52,15 +58,7 @@ namespace NetworkAccounting.Web.Controllers
         [HttpPost] 
         public void Post([FromBody] AddNetwork network)
         {
-            try
-            {
-                _networkService.AddToPool(network);
-            }
-            catch
-            {
-                // ignored
-            }
-
+            _networkService.AddToPool(network);            
         }
     }
 }

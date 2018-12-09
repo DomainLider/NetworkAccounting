@@ -69,22 +69,34 @@ namespace NetworkAccounting.Web.Service
         /// <returns></returns>
         public Network GetFreeNetwork(int size,int poolId)
         {
-            var networks=_networkStore.GetNetworksBySize(size,poolId).Where(n=>!n.IsBusy);
-            Network network = null;
-            int networksSize = networks.Count();
-            if (networksSize>0)
+            var networks = _networkStore.ListNetworks().Where(n=>!n.IsBusy&&n.Size<=size&&n.PoolId==poolId).OrderBy(n=>n.Size).ToArray();
+            if (networks.Length > 0)
             {
-                int index = new Random().Next(networksSize - 1);
-                network = networks.ElementAt(index);
+                var network = networks.First();
+                    //splitting                    
+                    for (int idx = 0; idx < size - network.Size; idx++)
+                    {
+                        //transaction required
+                        network.Size = (byte)(network.Size + 1);
+                        _networkStore.ChangeNetwork(network);
+                        _networkStore.AddNetwork(network.NetworkAddress + (ulong)Math.Pow(2,32-network.Size), network.Size, poolId);
+                        network = _networkStore.GetNetwork(network.NetworkAddress);
+                    }
+                    return network;                
             }
-            else
-            {
-                //splitting
-            }
-
-            return FillUserAddress(network);
+            //Not found
+            return null;
         }
 
+        /// <summary>
+        /// Change network
+        /// </summary>
+        /// <param name="network"></param>
+        public void ChangeNetwork(Network network)
+        {
+            _networkStore.ChangeNetwork(network);
+        }
+        
         /// <summary>
         /// Сеть по Id
         /// </summary>
