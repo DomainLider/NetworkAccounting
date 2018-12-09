@@ -46,7 +46,7 @@ namespace NetworkAccounting.Web
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+//            app.UseHttpsRedirection();
             app.UseMvc();
             
             if (env.IsDevelopment())

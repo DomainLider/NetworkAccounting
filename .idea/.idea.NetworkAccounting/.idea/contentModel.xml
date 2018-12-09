@@ -77,7 +77,9 @@
             <e p="node_modules" t="Include">
               <e p=".cache" t="Include">
                 <e p="babel-loader" t="Include">
+                  <e p="01f891eb2ee329de832ab457bc3cff0d.json.gz" t="Include" />
                   <e p="097c6a0fc688e89c1b1674dabbba9d00.json.gz" t="Include" />
+                  <e p="210fca4243d258a1b52daefbd255695e.json.gz" t="Include" />
                 </e>
               </e>
               <e p="@types" t="IncludeRecursive">
@@ -127,6 +129,7 @@
           </e>
         </e>
       </e>
+      <e p="node_modules\webpack-chain" t="IncludeRecursive" />
       <e p="packages" t="ExcludeRecursive" />
     </e>
   </component>

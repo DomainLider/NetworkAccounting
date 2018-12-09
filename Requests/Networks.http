@@ -5,16 +5,16 @@
 # * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
 # * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
 
-GET http://localhost:5000/api/network
+GET http://localhost:8000/api/network
 Accept: application/json
 
 ###
-GET http://localhost:5000/api/network/3232238080
+GET http://localhost:8000/api/network/3232238080
 Accept: application/json
 
 ###
 
-POST https://localhost:5001/api/network
+POST http://localhost:8000/api/network
 Content-Type: application/json
 
 {
@@ -25,12 +25,12 @@ Content-Type: application/json
 
 ###
 
-GET https://localhost:5001/api/network/find/25/1
+GET http://localhost:8000/api/network/find/25/1
 Accept: application/json
 
 ###
 
-POST https://localhost:5001/api/network/lease
+POST http://localhost:8000/api/network/lease
 Content-Type: application/json
 
 {
@@ -41,7 +41,7 @@ Content-Type: application/json
 
 ###
 
-POST https://localhost:5001/api/network/release/3232238592
+POST http://localhost:8000/api/network/release/3232238592
 Content-Type: application/json
 
 ###
