@@ -48,6 +48,24 @@ namespace NetworkAccounting.Web
 
             app.UseHttpsRedirection();
             app.UseMvc();
+            
+            if (env.IsDevelopment())
+            {
+                app.UseSpa(spa =>
+                {
+                    spa.Options.SourcePath = "ClientApp";
+
+                    if (env.IsDevelopment())
+                    {
+                        spa.UseProxyToSpaDevelopmentServer("http://localhost:8000");
+                    }
+                });
+            }
+            else
+            {
+                app.UseStaticFiles();
+            }
+
         }
     }
 }

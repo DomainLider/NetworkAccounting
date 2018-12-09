@@ -51,6 +51,7 @@
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
         </e>
+        <e p="Result" t="Include" />
         <e p="Service" t="Include">
           <e p="NetworkService.cs" t="Include" />
           <e p="PoolService.cs" t="Include" />
@@ -61,7 +62,70 @@
           <e p="NetworkStore.cs" t="Include" />
           <e p="PoolStore.cs" t="Include" />
         </e>
-        <e p="wwwroot" t="Include" />
+        <e p="wwwroot" t="Include">
+          <e p="ClientApp" t="Include">
+            <e p=".editorconfig" t="Include" />
+            <e p=".env" t="Include" />
+            <e p=".eslintrc" t="Include" />
+            <e p=".gitignore" t="Include" />
+            <e p=".prettierignore" t="Include" />
+            <e p=".prettierrc" t="Include" />
+            <e p=".umirc.js" t="Include" />
+            <e p="mock" t="Include">
+              <e p=".gitkeep" t="Include" />
+            </e>
+            <e p="node_modules" t="Include">
+              <e p=".cache" t="Include">
+                <e p="babel-loader" t="Include">
+                  <e p="097c6a0fc688e89c1b1674dabbba9d00.json.gz" t="Include" />
+                </e>
+              </e>
+              <e p="@types" t="IncludeRecursive">
+                <e p="history" t="IncludeRecursive" />
+                <e p="prop-types" t="IncludeRecursive" />
+                <e p="react" t="IncludeRecursive" />
+                <e p="react-router" t="IncludeRecursive" />
+              </e>
+              <e p="babel-eslint" t="IncludeRecursive" />
+              <e p="csstype" t="IncludeRecursive" />
+              <e p="eslint" t="IncludeRecursive" />
+              <e p="eslint-config-umi" t="IncludeRecursive" />
+              <e p="eslint-plugin-flowtype" t="IncludeRecursive" />
+              <e p="eslint-plugin-import" t="IncludeRecursive" />
+              <e p="eslint-plugin-jsx-a11y" t="IncludeRecursive" />
+              <e p="eslint-plugin-react" t="IncludeRecursive" />
+              <e p="husky" t="IncludeRecursive" />
+              <e p="lint-staged" t="IncludeRecursive" />
+              <e p="redux" t="IncludeRecursive" />
+              <e p="umi" t="IncludeRecursive" />
+              <e p="umi-plugin-react" t="IncludeRecursive" />
+            </e>
+            <e p="package.json" t="Include" />
+            <e p="src" t="Include">
+              <e p="app.js" t="Include" />
+              <e p="assets" t="Include">
+                <e p="yay.jpg" t="Include" />
+              </e>
+              <e p="global.css" t="Include" />
+              <e p="layouts" t="Include">
+                <e p="index.css" t="Include" />
+                <e p="index.js" t="Include" />
+              </e>
+              <e p="models" t="Include">
+                <e p=".gitkeep" t="Include" />
+              </e>
+              <e p="pages" t="Include">
+                <e p="index.css" t="Include" />
+                <e p="index.js" t="Include" />
+                <e p="networks.css" t="Include" />
+                <e p="networks.js" t="Include" />
+                <e p="pools.css" t="Include" />
+                <e p="pools.js" t="Include" />
+              </e>
+            </e>
+            <e p="yarn.lock" t="Include" />
+          </e>
+        </e>
       </e>
       <e p="packages" t="ExcludeRecursive" />
     </e>
