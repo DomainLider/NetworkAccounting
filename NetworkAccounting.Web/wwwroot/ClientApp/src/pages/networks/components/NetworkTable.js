@@ -11,9 +11,6 @@ const columns=[
   {title:'Pool',dataIndex:'pool'},
 ];
 
-const LeaseNetwork=(dispatch,size,poolId)=>()=>{
-  dispatch({type:'networkList/lease',payload:{size,poolId}});
-}
 
 const NetworkTable=({networkList,poolList,dispatch})=>{
   const data=lodash.values(networkList.networks);
@@ -23,7 +20,7 @@ const NetworkTable=({networkList,poolList,dispatch})=>{
   });
   return ([
     <Table dataSource={data} columns={columns} size='small'/>,
-    <Button onClick={LeaseNetwork(dispatch,27,1)}>Lease</Button>
+    <Button onClick={()=>dispatch({type:'forms/open',payload:{form:'leaseNetwork'}})}>Lease network</Button>
   ]);
 }
 

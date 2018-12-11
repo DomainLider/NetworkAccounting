@@ -14,12 +14,12 @@ export default {
        yield put({type:'updateNetworks',networks:response.data});
     },
 
-    *lease({payload:{size,poolId}},{put,call}){
+    *lease({payload:{size,poolId,description}},{put,call}){
       const response=yield call(GetFreeNetwork,{size,poolId});
       if (response.status!==200) return ; //Error get Free
       const network=response.data;
       if (!!!network) return ;// No free network
-      network.description=`Leased ${new Date().toGMTString()}`;
+      network.description=description;
       const leaseResponse=yield call(LeaseNetwork,network);
       if (leaseResponse.status!==200) return ; //Error in lease
       yield put({type:'load'});
