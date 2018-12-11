@@ -7,7 +7,7 @@ export default function() {
     <div className={styles.normal}>
       <h1>Page networks</h1>
       <NetworkTable/>
-      <LeaseForm visible={true}/>
+      <LeaseForm/>
     </div>
   );
 }

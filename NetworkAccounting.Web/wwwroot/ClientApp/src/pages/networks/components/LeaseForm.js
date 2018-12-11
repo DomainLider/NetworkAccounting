@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component,PureComponent} from 'react';
 
 import {
   Button, Modal, Form, Input, Radio,
@@ -8,21 +8,21 @@ const FormItem=Form.Item;
 import {connect} from 'dva';
 import update from 'immutability-helper';
 
-class LeaseForm extends Component {
+class LeaseForm extends PureComponent {
   constructor(props) {
     super(props);
     this.leaseNetwork=this.leaseNetwork.bind(this);
     this.close=this.close.bind(this);
     this.state={
-      visible:props.visible,
+      visible:false,
       size:24,
       poolId:1,
-      description:'Firt network'
+      description:'First network'
     };
   }
 
   render() {
-    const visible=this.state.visible;
+    const visible=this.props.leaseNetwork;
     return (<Modal visible={visible} title='Lease Network' okText='Lease' onOk={this.leaseNetwork} onCancel={this.close}>
       <Form layout='vertical'>
         <FormItem label='Pool Id'><Input onChange={this.changePool} value={this.state.poolId}/></FormItem>
@@ -35,11 +35,11 @@ class LeaseForm extends Component {
   leaseNetwork(){
     const dispatch=this.props.dispatch;
     dispatch({type:'networkList/lease',payload:{size:this.state.size,poolId:this.state.poolId,description:this.state.description}});
-    this.setState({visible:false});
+    this.close();
   }
 
   close(){
-    this.setState({visible:false});
+    this.props.dispatch({type:'forms/close',payload:{form:'leaseNetwork'}});
   }
 
   updateValue(key,value){
@@ -52,4 +52,4 @@ class LeaseForm extends Component {
 
 }
 
-export default connect((props) => (props))(LeaseForm);
+export default connect(({forms:{leaseNetwork}}) => ({leaseNetwork}))(LeaseForm);

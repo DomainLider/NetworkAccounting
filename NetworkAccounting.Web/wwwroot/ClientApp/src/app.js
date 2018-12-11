@@ -7,9 +7,12 @@ export const dva = {
       console.error(err.message);
     },
     initialState: {
+      forms:{
+        addNetwork:false
+      },
       poolList:{
         pools:[]
-      }
+      },
     },
   },
 };

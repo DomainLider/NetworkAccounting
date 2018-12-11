@@ -1,6 +1,6 @@
 import lodash from 'lodash';
 import {connect} from 'dva';
-import {Table} from 'antd';
+import {Table,Button} from 'antd';
 
 const columns=[
   {title:'NetworkId',dataIndex:'networkAddress'},
@@ -20,6 +20,7 @@ const NetworkTable=({networkList,poolList,dispatch})=>{
   });
   return ([
     <Table dataSource={data} columns={columns} size='small'/>,
+    <Button onClick={()=>dispatch({type:'forms/open',payload:{form:'leaseNetwork'}})}>Lease network</Button>
   ]);
 }
 
