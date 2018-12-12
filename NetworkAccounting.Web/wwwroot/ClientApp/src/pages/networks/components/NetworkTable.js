@@ -3,12 +3,12 @@ import {connect} from 'dva';
 import {Table,Button} from 'antd';
 
 const columns=[
-  {title:'NetworkId',dataIndex:'networkAddress'},
-  {title:'Address',dataIndex:'address'},
-  {title:'Size',dataIndex:'size'},
-  {title:'Description',dataIndex:'description'},
-  {title:'Rezerved',dataIndex:'isBusyStr'},
-  {title:'Pool',dataIndex:'pool'},
+  {title:'Id',dataIndex:'networkAddress'},
+  {title:'Адрес',dataIndex:'address'},
+  {title:'Размер',dataIndex:'size'},
+  {title:'Описание',dataIndex:'description'},
+  {title:'Занята',dataIndex:'isBusyStr'},
+  {title:'Пул',dataIndex:'pool'},
 ];
 
 
@@ -20,7 +20,7 @@ const NetworkTable=({networkList,poolList,dispatch})=>{
   });
   return ([
     <Table dataSource={data} columns={columns} size='small'/>,
-    <Button onClick={()=>dispatch({type:'forms/open',payload:{form:'leaseNetwork'}})}>Lease network</Button>
+    <Button onClick={()=>dispatch({type:'forms/open',payload:{form:'leaseNetwork'}})}>Получить сеть</Button>
   ]);
 }
 

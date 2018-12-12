@@ -21,7 +21,7 @@ class LeaseForm extends PureComponent {
   initState = () => ({
       size: 24,
       poolId: 1,
-      description: 'First network',
+      description: 'Новая подсеть',
       network: null
     }
   );
@@ -32,19 +32,18 @@ class LeaseForm extends PureComponent {
     const pools=_.values(this.props.poolList.pools);
     const defaultPool=pools.length>0?pools[0].id:null;
     return (
-      <Modal visible={visible} title='Lease Network' okText='Lease' onOk={this.leaseNetwork} onCancel={this.close}>
+      <Modal visible={visible} title='Получить новую сеть' okText='Новая сеть' onOk={this.leaseNetwork} cancelText='Закрыть' onCancel={this.close}>
         <Form layout='vertical'>
-          <FormItem label='Выберите тип сети'>
-            {/*<Input onChange={this.changePool} value={this.state.poolId}/>*/}
+          <FormItem label='Выберите тип сети' required>
             <Select onChange={this.changePool} defaultValue={defaultPool}>
               {pools.map(p=><Option key={p.id} value={p.id}>{p.description?p.description:p.name}</Option>)}
             </Select>
           </FormItem>
-          <FormItem label='Network size'><Input onChange={this.changeSize} value={this.state.size}/></FormItem>
-          <FormItem label='Description'><Input onChange={this.changeDescription}
+          <FormItem label='Размер сети' required><Input onChange={this.changeSize} value={this.state.size}/></FormItem>
+          <FormItem label='Описание'><Input onChange={this.changeDescription}
                                                value={this.state.description}/></FormItem>
-          <FormItem label='Leased network'><Input readOnly
-                                                  value={leasedNetwork ? `${leasedNetwork.address}/${leasedNetwork.size}` : 'XXX'}/></FormItem>
+          <FormItem label='Полученная сеть'><Input readOnly disabled
+                                                  value={leasedNetwork ? `${leasedNetwork.address}/${leasedNetwork.size}` : '-'}/></FormItem>
         </Form>
       </Modal>);
   }
