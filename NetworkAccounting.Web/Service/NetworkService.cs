@@ -50,9 +50,9 @@ namespace NetworkAccounting.Web.Service
         /// Арендовать сеть
         /// </summary>
         /// <param name="network"></param>
-        public void LeaseNetwork(Network network)
+        public Network LeaseNetwork(Network network)
         {
-            _networkStore.LeaseNetwork(network);
+            return FillUserAddress(_networkStore.LeaseNetwork(network));
         }
 
         /// <summary>

@@ -44,9 +44,9 @@ namespace NetworkAccounting.Web.Controllers
         }
 
         [HttpPost("lease/")]
-        public void LeaseNetwork([FromBody] Network network)
+        public IActionResult LeaseNetwork([FromBody] Network network)
         {
-            _networkService.LeaseNetwork(network);
+            return new JsonResult(_networkService.LeaseNetwork(network));
         }
 
         [HttpPost("release/{id}")]

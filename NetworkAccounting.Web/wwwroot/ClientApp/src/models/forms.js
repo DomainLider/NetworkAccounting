@@ -1,16 +1,20 @@
+import {leaseNetworkState,setLeasedNetwork,clearLeasedNetwork} from "../forms/leaseNetwork";
+import update from 'immutability-helper';
 
 export default {
   namespace: 'forms',
   state: {
-    leaseNetwork:false
+    leaseNetwork: leaseNetworkState
   },
   reducers: {
     'open'(state,{payload}){
-      return {[payload.form]:true};
+      return update(state,{[payload.form]:{visible:{$set:true}}});
     },
     'close'(state,{payload}){
-      return {[payload.form]:false};
-    }
+      return update(state,{[payload.form]:{visible:{$set:false}}});
+    },
+    setLeasedNetwork,
+    clearLeasedNetwork
   },
   effects:{
   },

@@ -59,12 +59,13 @@ namespace NetworkAccounting.Web.Store
             }   
         }
         
-        public void LeaseNetwork(Network network)
+        public Network LeaseNetwork(Network network)
         {
             using (var db = CreateConnection())
             {
                 db.Open();
-                db.ExecuteScalar("UPDATE network SET description=@Description,isBusy=1 WHERE NetworkAddress=@Id", new {Id=network.NetworkAddress,network.Description});                
+                db.ExecuteScalar("UPDATE network SET description=@Description,isBusy=1 WHERE NetworkAddress=@Id", new {Id=network.NetworkAddress,network.Description});
+                return GetNetwork(network.NetworkAddress);
             }   
         }
 

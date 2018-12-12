@@ -22,6 +22,8 @@ export default {
       network.description=description;
       const leaseResponse=yield call(LeaseNetwork,network);
       if (leaseResponse.status!==200) return ; //Error in lease
+
+      yield put({type:'forms/setLeasedNetwork',payload:{network:leaseResponse.data}});//update form leased network
       yield put({type:'load'});
     }
   },

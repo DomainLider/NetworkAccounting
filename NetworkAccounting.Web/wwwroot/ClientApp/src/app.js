@@ -8,7 +8,9 @@ export const dva = {
     },
     initialState: {
       forms:{
-        addNetwork:false
+        leaseNetwork:{
+          visible:false
+        }
       },
       poolList:{
         pools:[]
