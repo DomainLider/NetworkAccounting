@@ -10,6 +10,6 @@ export function GetFreeNetwork({size,poolId}){
 
 export function LeaseNetwork(network){
   return axios.post(`/api/network/lease`,
-    {networkAddress:network.networkAddress,Description:network.description}
+    {Id:network.id,Description:network.description}
     );
 }

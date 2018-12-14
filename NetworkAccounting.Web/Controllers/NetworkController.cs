@@ -26,7 +26,7 @@ namespace NetworkAccounting.Web.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetById(uint id)
+        public IActionResult GetById(int id)
         {
             return new JsonResult(_networkService.GetNetwork(id));
         }

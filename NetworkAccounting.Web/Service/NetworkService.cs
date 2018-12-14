@@ -69,7 +69,7 @@ namespace NetworkAccounting.Web.Service
         /// <returns></returns>
         public Network GetFreeNetwork(int size,int poolId)
         {
-            var networks = _networkStore.ListNetworks().Where(n=>!n.IsBusy&&n.Size<=size&&n.PoolId==poolId).OrderByDescending(n=>n.Size).ToArray();
+            var networks = _networkStore.ListNetworks().Where(n=>(n.Status==NetworkStatus.Free)&&n.Size<=size&&n.PoolId==poolId).OrderByDescending(n=>n.Size).ToArray();
             if (networks.Length > 0)
             {
                 var network = networks.First();
@@ -78,10 +78,12 @@ namespace NetworkAccounting.Web.Service
                 for (int idx = 0; idx < count; idx++)
                 {
                     //TODO: transaction required
-                    network.Size = (byte)(network.Size + 1);
+                    network.Status = NetworkStatus.Parent;
                     _networkStore.ChangeNetwork(network);
-                    _networkStore.AddNetwork(network.NetworkAddress + (ulong)Math.Pow(2,32-network.Size), network.Size, poolId);
-                    network = _networkStore.GetNetwork(network.NetworkAddress);
+                    
+                    network.Size = (byte)(network.Size + 1);
+                    network=_networkStore.AddNetwork(network.NetworkAddress, (byte) network.Size, poolId,network.Id);
+                    _networkStore.AddNetwork(network.NetworkAddress + (ulong)Math.Pow(2,32-network.Size), network.Size, poolId,network.Id);
                 }
                 return network;                
             }
@@ -103,7 +105,7 @@ namespace NetworkAccounting.Web.Service
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Network GetNetwork(ulong id)
+        public Network GetNetwork(int id)
         {
             var network=_networkStore.GetNetwork(id);
             return FillUserAddress(network);
@@ -116,11 +118,11 @@ namespace NetworkAccounting.Web.Service
         /// Список сетей
         /// </summary>
         /// <returns></returns>
-        public Dictionary<ulong,Network> ListNetworks()
+        public Dictionary<int,Network> ListNetworks()
         {
             var networks = _networkStore.ListNetworks();
             networks.ToList().ForEach(n=>n.Address=ConvertAddressToString(n.NetworkAddress));
-            var groupedNetworks = networks.GroupBy(n=>n.NetworkAddress).ToDictionary(n=>n.Key,n=>n.ToList().First());
+            var groupedNetworks = networks.GroupBy(n=>n.Id).ToDictionary(n=>n.Key,n=>n.ToList().First());
             
             return groupedNetworks;
         }
