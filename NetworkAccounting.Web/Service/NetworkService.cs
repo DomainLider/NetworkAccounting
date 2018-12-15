@@ -67,9 +67,12 @@ namespace NetworkAccounting.Web.Service
         /// <param name="size"></param>
         /// <param name="poolId"></param>
         /// <returns></returns>
-        public Network GetFreeNetwork(int size,int poolId)
+        public Network GetFreeNetwork(int size,int poolId,int? fromId)
         {
-            var networks = _networkStore.ListNetworks().Where(n=>(n.Status==NetworkStatus.Free)&&n.Size<=size&&n.PoolId==poolId).OrderByDescending(n=>n.Size).ToArray();
+            var networks = _networkStore.ListNetworks().Where(n=>(n.Status==NetworkStatus.Free)
+                                                                 &&n.Size<=size
+                                                                 &&n.PoolId==poolId
+                                                                 &&((!fromId.HasValue)||n.Id==fromId)).OrderByDescending(n=>n.Size).ToArray();
             if (networks.Length > 0)
             {
                 var network = networks.First();
@@ -77,13 +80,14 @@ namespace NetworkAccounting.Web.Service
                 int count = size - network.Size;
                 for (int idx = 0; idx < count; idx++)
                 {
+                    int parentId = network.Parent ?? network.Id;
                     //TODO: transaction required
                     network.Status = NetworkStatus.Parent;
                     _networkStore.ChangeNetwork(network);
                     
                     network.Size = (byte)(network.Size + 1);
-                    network=_networkStore.AddNetwork(network.NetworkAddress, (byte) network.Size, poolId,network.Id);
-                    _networkStore.AddNetwork(network.NetworkAddress + (ulong)Math.Pow(2,32-network.Size), network.Size, poolId,network.Id);
+                    network=_networkStore.AddNetwork(network.NetworkAddress, (byte) network.Size, poolId,parentId);
+                    _networkStore.AddNetwork(network.NetworkAddress + (ulong)Math.Pow(2,32-network.Size), network.Size, poolId,parentId);
                 }
                 return network;                
             }

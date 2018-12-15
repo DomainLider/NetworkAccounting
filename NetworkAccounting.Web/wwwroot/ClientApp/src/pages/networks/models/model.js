@@ -14,8 +14,8 @@ export default {
        yield put({type:'updateNetworks',networks:response.data});
     },
 
-    *lease({payload:{size,poolId,description}},{put,call}){
-      const response=yield call(GetFreeNetwork,{size,poolId});
+    *lease({payload:{size,poolId,description,fromId}},{put,call}){
+      const response=yield call(GetFreeNetwork,{size,poolId,fromId});
       if (response.status!==200) return ; //Error get Free
       const network=response.data;
       if (!!!network) return ;// No free network

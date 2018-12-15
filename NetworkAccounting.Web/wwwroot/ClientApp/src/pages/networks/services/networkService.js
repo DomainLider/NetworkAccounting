@@ -4,8 +4,10 @@ export function ListNetworks () {
   return axios.get('/api/network');
 }
 
-export function GetFreeNetwork({size,poolId}){
-  return axios.get(`/api/network/find/${size}/${poolId}`);
+export function GetFreeNetwork({size,poolId,fromId}){
+  return axios.post(`/api/network/find/`,
+    {size,poolId,fromId}
+    );
 }
 
 export function LeaseNetwork(network){

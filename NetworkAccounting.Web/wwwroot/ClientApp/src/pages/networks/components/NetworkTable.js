@@ -2,9 +2,6 @@ import lodash from 'lodash';
 import {connect} from 'dva';
 import {Table,Button} from 'antd';
 
-
-
-
 const NetworkTable=({networkList,poolList,dispatch})=>{
   const data=lodash.values(networkList.networks);
   const pools=lodash.values(poolList.pools);
@@ -33,8 +30,8 @@ const NetworkTable=({networkList,poolList,dispatch})=>{
     d.pool=poolList.pools[d.poolId]?poolList.pools[d.poolId].description:'';
   });
   return ([
-    <Table dataSource={data} columns={columns} size='small' />,
-    <Button onClick={()=>dispatch({type:'forms/open',payload:{form:'leaseNetwork'}})}>Получить сеть</Button>
+    <Button onClick={()=>dispatch({type:'forms/open',payload:{form:'leaseNetwork'}})}>Получить сеть</Button>,
+    <Table dataSource={data} columns={columns} size='small' pagination={{ pageSize: 20 }}/>,
   ]);
 }
 

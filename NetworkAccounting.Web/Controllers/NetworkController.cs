@@ -37,10 +37,10 @@ namespace NetworkAccounting.Web.Controllers
             _networkService.ChangeNetwork(network);
         }
         
-        [HttpGet("find/{size}/{poolId}")]
-        public IActionResult FindNetwork(int size,int poolId)
+        [HttpPost("find/")]
+        public IActionResult FindNetwork([FromBody] FindNetwork model)
         {
-            return new JsonResult(_networkService.GetFreeNetwork(size,poolId));
+            return new JsonResult(_networkService.GetFreeNetwork(model.Size,model.PoolId,model.FromId));
         }
 
         [HttpPost("lease/")]
