@@ -8,7 +8,7 @@ namespace NetworkAccounting.Web.Store
 {
     public class NetworkStore : DbStore
     {
-        public IEnumerable<Network> ListNetworks(List<NetworkStatus> statuses=null)
+        public virtual IEnumerable<Network> ListNetworks(List<NetworkStatus> statuses=null)
         {
             using (var db = CreateConnection())
             {
@@ -23,7 +23,7 @@ namespace NetworkAccounting.Web.Store
             }
         }
                 
-        public Network AddNetwork(ulong address,int size,int poolId,int? parent=null)
+        public virtual Network AddNetwork(ulong address,int size,int poolId,int? parent=null)
         {
             using (var db = CreateConnection())
             {
@@ -36,7 +36,7 @@ namespace NetworkAccounting.Web.Store
             }
         }
 
-        public Network GetNetwork(int id)
+        public virtual Network GetNetwork(int id)
         {
             using (var db = CreateConnection())
             {
@@ -65,7 +65,7 @@ namespace NetworkAccounting.Web.Store
             }   
         }
 
-        public void ChangeNetwork(Network network)
+        public virtual void ChangeNetwork(Network network)
         {
             using (var db = CreateConnection())
             {
