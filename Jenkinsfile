@@ -1,4 +1,8 @@
 text='1111'
+text2=[
+    a='abc',
+    b='bcd'
+]
 pipeline {
     agent any
 
@@ -14,7 +18,7 @@ pipeline {
 
                 echo "First sssss ${text}";
                 script {
-                    println "print-print ${text}"
+                    println "print-print ${text2}"
                 }
             }
         }
