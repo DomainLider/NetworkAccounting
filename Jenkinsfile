@@ -13,6 +13,9 @@ pipeline {
                 echo 'Testing..'
 
                 echo "First sssss ${text}";
+                script {
+                    println "print-print"
+                }
             }
         }
         stage('Deploy') {
