@@ -1,5 +1,5 @@
 text='1111'
-text2=[
+@Field def text2=[
     a='abc',
     b='bcd'
 ]
