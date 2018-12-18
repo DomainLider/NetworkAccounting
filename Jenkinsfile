@@ -1,10 +1,6 @@
 text=[
-        first=[
-                name='loly'
-        ],
-        two=[
-                name='bad'
-        ]
+        first='aaa',
+        two='bbb'
 ]
 pipeline {
     agent any
@@ -18,7 +14,9 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-                echo "First ${text.first.name}"
+                a=text['first']
+                echo a
+                echo "First ${a}";
             }
         }
         stage('Deploy') {
