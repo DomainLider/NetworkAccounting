@@ -18,7 +18,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-                echo "First ${text.first}"
+                echo "First ${text.first.name}"
             }
         }
         stage('Deploy') {
