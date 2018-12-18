@@ -18,7 +18,7 @@ pipeline {
 
                 echo "First sssss ${text}";
                 script {
-                    println "print-print ${text2.a}"
+                    println "print-print ${text2['a']}"
                 }
             }
         }
