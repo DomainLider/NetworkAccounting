@@ -1,7 +1,4 @@
-text=[
-        first='aaa',
-        two='bbb'
-]
+text='1111'
 pipeline {
     agent any
 
@@ -15,7 +12,7 @@ pipeline {
             steps {
                 echo 'Testing..'
 
-                echo "First sssss";
+                echo "First sssss ${text}";
             }
         }
         stage('Deploy') {
