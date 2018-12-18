@@ -1,5 +1,5 @@
 text='1111'
-@Field def text2=[
+text2=[
     a='abc',
     b='bcd'
 ]
@@ -18,7 +18,8 @@ pipeline {
 
                 echo "First sssss ${text}";
                 script {
-                    println "print-print ${text2.a}"
+                    def a=text2.a
+                    println "print-print ${a}"
                 }
             }
         }
