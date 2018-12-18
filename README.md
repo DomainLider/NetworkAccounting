@@ -14,5 +14,5 @@ This microservice features:
 
 Language and frameworks:
 1. Backend .NET Core 2.1
-1. Frontend UMI(React+Redux+DVA+UMI)
+1. Frontend Antd (React+Redux+DVA+UMI)
 

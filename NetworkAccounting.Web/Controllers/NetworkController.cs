@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using NetworkAccounting.Web.Model;
 using NetworkAccounting.Web.Service;
+using Serilog;
 
 namespace NetworkAccounting.Web.Controllers
 {
@@ -21,7 +22,7 @@ namespace NetworkAccounting.Web.Controllers
         
         [HttpGet]
         public IActionResult Get()
-        {
+        {            
             return new JsonResult(_networkService.ListNetworks());
         }
 
@@ -40,7 +41,10 @@ namespace NetworkAccounting.Web.Controllers
         [HttpPost("find/")]
         public IActionResult FindNetwork([FromBody] FindNetwork model)
         {
-            return new JsonResult(_networkService.GetFreeNetwork(model.Size,model.PoolId,model.FromId));
+            Log.Information("Request free network {@request}",model);
+            var network = new JsonResult(_networkService.GetFreeNetwork(model.Size, model.PoolId, model.FromId));
+            Log.Information("Response free network {@network}",network);
+            return network;
         }
 
         [HttpPost("lease/")]
