@@ -14,11 +14,8 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-                script {
-                    a=text['first']
-                    println a
-                }                                
-                echo "First ${a}";
+
+                echo "First sssss";
             }
         }
         stage('Deploy') {
