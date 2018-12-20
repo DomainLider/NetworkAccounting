@@ -31,7 +31,7 @@ const NetworkTable=({networkList,poolList,dispatch})=>{
   });
   return ([
     <Button onClick={()=>dispatch({type:'forms/open',payload:{form:'leaseNetwork'}})}>Получить сеть</Button>,
-    <Table dataSource={data} columns={columns} size='small' pagination={{ pageSize: 20 }}/>,
+    <Table dataSource={data} columns={columns} size='small' pagination={{ pageSize: 12 }}/>,
   ]);
 }
 

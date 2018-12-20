@@ -10,6 +10,9 @@ export const dva = {
       forms:{
         leaseNetwork:{
           visible:false
+        },
+        crudPool:{
+          visible:false
         }
       },
       poolList:{
