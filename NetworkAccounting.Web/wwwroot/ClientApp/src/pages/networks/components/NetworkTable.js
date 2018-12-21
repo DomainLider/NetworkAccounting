@@ -29,10 +29,9 @@ const NetworkTable=({networkList,poolList,dispatch})=>{
   data.forEach(d=>{
     d.pool=poolList.pools[d.poolId]?poolList.pools[d.poolId].description:'';
   });
-  return ([
-    <Button onClick={()=>dispatch({type:'forms/open',payload:{form:'leaseNetwork'}})}>Получить сеть</Button>,
-    <Table dataSource={data} columns={columns} size='small' pagination={{ pageSize: 12 }}/>,
-  ]);
+  return (
+    <Table dataSource={data} columns={columns} size='small' pagination={{ pageSize: 12 }}/>
+  );
 }
 
 export default connect(({networkList,poolList})=>({networkList,poolList}))(NetworkTable);

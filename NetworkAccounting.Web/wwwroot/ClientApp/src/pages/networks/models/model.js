@@ -1,12 +1,20 @@
+import update from 'immutability-helper';
 import {GetFreeNetwork, LeaseNetwork, ListNetworks} from '../services/networkService'
+
 
 export default {
   namespace: 'networkList',
-  state: {networks:{}},
+  state: {
+    networks:{},
+    leased:null
+  },
   reducers: {
     'updateNetworks'(state,{networks}){
-      return {networks};
+      return update(state,{networks:{$set:networks}});
     },
+    'setLeased'(state,{leased}){
+      return update(state,{leased:{$set:leased}});
+    }
   },
   effects:{
     *load(payload,{put,call}){
@@ -22,8 +30,7 @@ export default {
       network.description=description;
       const leaseResponse=yield call(LeaseNetwork,network);
       if (leaseResponse.status!==200) return ; //Error in lease
-
-      yield put({type:'forms/setLeasedNetwork',payload:{network:leaseResponse.data}});//update form leased network
+      yield put({type:'setLeased',leased:leaseResponse.data});//update form leased network
       yield put({type:'load'});
     }
   },

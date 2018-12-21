@@ -1,5 +1,5 @@
 import React, {Component, PureComponent} from 'react';
-import _ from 'lodash';
+import update from 'immutability-helper';
 
 import {
   Button, Modal, Form, Input, Select,
@@ -7,34 +7,31 @@ import {
 
 const FormItem = Form.Item;
 const Option = Select.Option;
-import {connect} from 'dva';
-import update from 'immutability-helper';
 
-class LeaseForm extends PureComponent {
+class FormLeaseNetwork extends PureComponent {
   constructor(props) {
     super(props);
-    this.leaseNetwork = this.leaseNetwork.bind(this);
-    this.close = this.close.bind(this);
-    this.state = this.initState();
+    const {pools,networks}=this.props;
+    this.state = Object.assign({
+      pools,networks
+    },this.initState);
   }
 
-  initState = () => ({
+  initState = {
       size: 24,
       poolId: 1,
       fromId:null,
       description: 'Новая подсеть',
       network: null
     }
-  );
 
   render() {
-    const visible = this.props.leaseNetwork.visible;
-    const leasedNetwork = this.props.leaseNetwork.network;
-    const pools=_.values(this.props.poolList.pools);
+    const leased = this.props.leased;
+    const {pools,networks}=this.state;
     const defaultPool=pools.length>0?pools[0].id:null;
-    const froms=_.values(this.props.networkList.networks).filter(n=>n.poolId===this.state.poolId&&(n.status===0)&&(n.size<=this.state.size));
+    const froms=networks.filter(n=>n.poolId===this.state.poolId&&(n.status===0)&&(n.size<=this.state.size));
     return (
-      <Modal visible={visible} title='Получить новую сеть' okText='Новая сеть' onOk={this.leaseNetwork} cancelText='Закрыть' onCancel={this.close}>
+      <Modal visible title='Получить новую сеть' okText='Новая сеть' onOk={()=>{this.props.onLeaseNetwork(this.state)}} cancelText='Закрыть' onCancel={this.props.onClose}>
         <Form layout='vertical'>
           <FormItem label='Выберите тип сети' required>
             <Select onChange={this.changePool} defaultValue={defaultPool}>
@@ -48,31 +45,16 @@ class LeaseForm extends PureComponent {
             </Select>
           </FormItem>
           <FormItem label='Описание'><Input onChange={this.changeDescription}
-                                               value={this.state.description}/></FormItem>
+                                            value={this.state.description}/></FormItem>
           <FormItem label='Полученная сеть'><Input readOnly disabled
-                                                  value={leasedNetwork ? `${leasedNetwork.address}/${leasedNetwork.size}` : '-'}/></FormItem>
+                                                   value={leased ? `${leased.address}/${leased.size}` : '-'}/></FormItem>
         </Form>
       </Modal>);
-  }
-
-  leaseNetwork() {
-    const dispatch = this.props.dispatch;
-    dispatch({
-      type: 'networkList/lease',
-      payload: {size: this.state.size, poolId: this.state.poolId, description: this.state.description,fromId:this.state.fromId}
-    });
-  }
-
-  close() {
-    this.props.dispatch({type: 'forms/close', payload: {form: 'leaseNetwork'}});
-    this.props.dispatch({type: 'forms/clearLeasedNetwork'});
-    this.setState(this.initState());
   }
 
   updateValue(key, value) {
     this.setState(update(this.state, {[key]: {$set: value}}));
   }
-
   changePool = (e) => {
     this.updateValue('poolId', e);
     this.changeFromId(null);
@@ -85,4 +67,4 @@ class LeaseForm extends PureComponent {
 
 }
 
-export default connect(({forms: {leaseNetwork},poolList,networkList}) => ({leaseNetwork,poolList,networkList}))(LeaseForm);
+export default FormLeaseNetwork;
