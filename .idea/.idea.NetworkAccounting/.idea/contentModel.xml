@@ -8,6 +8,7 @@
     <e p="C:\Users\dl\.nuget\packages\xunit.runner.visualstudio\2.3.1\build\netcoreapp1.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll" t="Include" />
     <e p="C:\Users\dl\.Rider2018.2\config\consoles\db" t="IncludeRecursive" />
     <e p="C:\Users\dl\.Rider2018.2\config\extensions" t="IncludeRecursive" />
+    <e p="C:\Users\dl\.Rider2018.2\config\scratches" t="IncludeRecursive" />
     <e p="C:\Users\dl\.Rider2018.2\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\dl\.Rider2018.2\system\resharper-host\local\Transient\ReSharperHost\v182\SolutionCaches\_NetworkAccounting.-1727993867.00" t="ExcludeRecursive" />
     <e p="D:\projects\microservice\NetworkAccounting" t="IncludeFlat">
@@ -35,6 +36,7 @@
         </e>
         <e p="Model" t="Include">
           <e p="AddNetwork.cs" t="Include" />
+          <e p="FindNetwork.cs" t="Include" />
           <e p="Network.cs" t="Include" />
           <e p="Pool.cs" t="Include" />
         </e>
@@ -74,90 +76,29 @@
             <e p="mock" t="Include">
               <e p=".gitkeep" t="Include" />
             </e>
-            <e p="node_modules" t="Include">
-              <e p=".cache" t="Include">
-                <e p="babel-loader" t="Include">
-                  <e p="04714557d8b4a99c1ac634844027d17b.json.gz" t="Include" />
-                  <e p="04dd7235bcaa7d1f317628b772036b31.json.gz" t="Include" />
-                  <e p="0742e1855e3eed231b7d4bfd4785599e.json.gz" t="Include" />
-                  <e p="07588edb3bac9de6f8a52765ba844c0f.json.gz" t="Include" />
-                  <e p="1526bf65ea0974407fe47d8cfa152c52.json.gz" t="Include" />
-                  <e p="18c092bc0bca4b855923f9a074798a7d.json.gz" t="Include" />
-                  <e p="1da4df68634ff13fea7d56d686a557a7.json.gz" t="Include" />
-                  <e p="210a78a61921afdaabd78a0d31e4f2b4.json.gz" t="Include" />
-                  <e p="286289901ee8d6ce96d1752b527b30aa.json.gz" t="Include" />
-                  <e p="2bb183362b0797d16d9121e0517ad5dc.json.gz" t="Include" />
-                  <e p="3d238f9533c23bceeda8f54f40fc1be7.json.gz" t="Include" />
-                  <e p="3e088ca6864c7d9008fed8af5819c5bb.json.gz" t="Include" />
-                  <e p="460644fe3ad74119ab2ae1278d04de6a.json.gz" t="Include" />
-                  <e p="47ea8d7524e718a325750633ddcf9a01.json.gz" t="Include" />
-                  <e p="74fbe37f85a1ad1c8afe40908455eb0b.json.gz" t="Include" />
-                  <e p="75a4371ff61b03b641e0e8387a18f441.json.gz" t="Include" />
-                  <e p="7b574beb27cfb258b050b1859f1267d6.json.gz" t="Include" />
-                  <e p="7b6efaa99bbed0cb4ba7aa924e4807b0.json.gz" t="Include" />
-                  <e p="7d45d3d46453a3b9469b6dd4960d98a9.json.gz" t="Include" />
-                  <e p="7d73aba4a8f47321b5c51839aec1804a.json.gz" t="Include" />
-                  <e p="7fce81af276d7960916c029ad4d6b229.json.gz" t="Include" />
-                  <e p="8001dc0fcf0caa2608ddc479798ec931.json.gz" t="Include" />
-                  <e p="822a7cfe8dd2df69384ca639b9b7a693.json.gz" t="Include" />
-                  <e p="87c887f3c5d63d8ea16d3111f8350df6.json.gz" t="Include" />
-                  <e p="8ea3c82830071e9dd57e2d253cdf3926.json.gz" t="Include" />
-                  <e p="9d80d9b63893cc383e502f1acda8d80d.json.gz" t="Include" />
-                  <e p="a03ae79a49ec47612cd216e6a8f42f53.json.gz" t="Include" />
-                  <e p="a3ab3206b49d530a22edc9df9f42b98e.json.gz" t="Include" />
-                  <e p="ab9efd14a562d9f28381807d5fba7130.json.gz" t="Include" />
-                  <e p="b07db09c3c26d6e2a69642d912347647.json.gz" t="Include" />
-                  <e p="b2bab2c55038c5dcbf0d3a976c44b3e0.json.gz" t="Include" />
-                  <e p="b93f0e5fa4c37ec6f69c808b491ae88c.json.gz" t="Include" />
-                  <e p="b9de7f168e33d5ff7e5fc5af7794674c.json.gz" t="Include" />
-                  <e p="c2af2af1361d878939c3a76db7c01a9b.json.gz" t="Include" />
-                  <e p="c4e4d01ef9ace164c2e1ab9eebc61e77.json.gz" t="Include" />
-                  <e p="c6f1fa9cb83831cb501b397eadaab2b0.json.gz" t="Include" />
-                  <e p="cb6513234d14f930d3cab5a5799e2f1e.json.gz" t="Include" />
-                  <e p="cbe1e693882c957c12f9c16158a0a8b0.json.gz" t="Include" />
-                  <e p="cc5acf0ccad3fc9ca4309ab1387bf722.json.gz" t="Include" />
-                  <e p="cd614d3d8022dc40f7d049188e8d9ee0.json.gz" t="Include" />
-                  <e p="cefc016d9b6538fbd6a8a069734319c7.json.gz" t="Include" />
-                  <e p="cfc5a45674c65b78e7ff3e688d01c3b7.json.gz" t="Include" />
-                  <e p="d18674faa2e950549fd8a5bac81f2f21.json.gz" t="Include" />
-                  <e p="d3d6547d26d3ecac8449ddb2c4fc59ff.json.gz" t="Include" />
-                  <e p="d472220c8da6ffd0aa861ba19d60a1e0.json.gz" t="Include" />
-                  <e p="e6cdcac4d28349f672646b4a61598c7d.json.gz" t="Include" />
-                  <e p="e7d89a32faa352b887b4afe66c945304.json.gz" t="Include" />
-                  <e p="e914d66795867441b470eeaee3394c11.json.gz" t="Include" />
-                  <e p="ec7ccc0f9ce89961c2cf328a8105c7b3.json.gz" t="Include" />
-                  <e p="f3539559dbe0e490ed7d83af8c81b339.json.gz" t="Include" />
-                  <e p="f6e83b4a7faf900b145e5b25e6c4f564.json.gz" t="Include" />
-                  <e p="f8efd8704aa6201f334027e16c0bb63e.json.gz" t="Include" />
-                  <e p="fa2e873a0446d80265a7b6b001ff7907.json.gz" t="Include" />
-                  <e p="fa9b5a9c70763e16010fbd6af9c8e4cb.json.gz" t="Include" />
-                  <e p="fd6f6df6fb5b73e0b5e3c84cac40e54d.json.gz" t="Include" />
-                </e>
-              </e>
-              <e p="@types" t="IncludeRecursive">
-                <e p="history" t="IncludeRecursive" />
-                <e p="prop-types" t="IncludeRecursive" />
-                <e p="react" t="IncludeRecursive" />
-                <e p="react-router" t="IncludeRecursive" />
-              </e>
-              <e p="axios" t="IncludeRecursive" />
-              <e p="babel-eslint" t="IncludeRecursive" />
-              <e p="csstype" t="IncludeRecursive" />
-              <e p="eslint" t="IncludeRecursive" />
-              <e p="eslint-config-umi" t="IncludeRecursive" />
-              <e p="eslint-plugin-flowtype" t="IncludeRecursive" />
-              <e p="eslint-plugin-import" t="IncludeRecursive" />
-              <e p="eslint-plugin-jsx-a11y" t="IncludeRecursive" />
-              <e p="eslint-plugin-react" t="IncludeRecursive" />
-              <e p="husky" t="IncludeRecursive" />
-              <e p="immutability-helper" t="IncludeRecursive" />
-              <e p="immutable" t="IncludeRecursive" />
-              <e p="lint-staged" t="IncludeRecursive" />
-              <e p="lodash" t="IncludeRecursive" />
-              <e p="redux" t="IncludeRecursive" />
-              <e p="umi" t="IncludeRecursive" />
-              <e p="umi-plugin-react" t="IncludeRecursive" />
+            <e p="node_modules\@types" t="IncludeRecursive">
+              <e p="history" t="IncludeRecursive" />
+              <e p="prop-types" t="IncludeRecursive" />
+              <e p="react" t="IncludeRecursive" />
+              <e p="react-router" t="IncludeRecursive" />
             </e>
+            <e p="node_modules\axios" t="IncludeRecursive" />
+            <e p="node_modules\babel-eslint" t="IncludeRecursive" />
+            <e p="node_modules\csstype" t="IncludeRecursive" />
+            <e p="node_modules\eslint" t="IncludeRecursive" />
+            <e p="node_modules\eslint-config-umi" t="IncludeRecursive" />
+            <e p="node_modules\eslint-plugin-flowtype" t="IncludeRecursive" />
+            <e p="node_modules\eslint-plugin-import" t="IncludeRecursive" />
+            <e p="node_modules\eslint-plugin-jsx-a11y" t="IncludeRecursive" />
+            <e p="node_modules\eslint-plugin-react" t="IncludeRecursive" />
+            <e p="node_modules\husky" t="IncludeRecursive" />
+            <e p="node_modules\immutability-helper" t="IncludeRecursive" />
+            <e p="node_modules\immutable" t="IncludeRecursive" />
+            <e p="node_modules\lint-staged" t="IncludeRecursive" />
+            <e p="node_modules\lodash" t="IncludeRecursive" />
+            <e p="node_modules\redux" t="IncludeRecursive" />
+            <e p="node_modules\umi" t="IncludeRecursive" />
+            <e p="node_modules\umi-plugin-react" t="IncludeRecursive" />
             <e p="package.json" t="Include" />
             <e p="src" t="Include">
               <e p="app.js" t="Include" />
@@ -165,6 +106,7 @@
                 <e p="yay.jpg" t="Include" />
               </e>
               <e p="forms" t="Include">
+                <e p="crudPool.js" t="Include" />
                 <e p="leaseNetwork.js" t="Include" />
               </e>
               <e p="global.css" t="Include" />
@@ -195,6 +137,7 @@
                 </e>
                 <e p="pools" t="Include">
                   <e p="components" t="Include">
+                    <e p="CrudPoolForm.js" t="Include" />
                     <e p="PoolList.js" t="Include" />
                   </e>
                   <e p="index.js" t="Include" />
