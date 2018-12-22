@@ -1,5 +1,6 @@
 import React, {Component, PureComponent} from 'react';
 import update from 'immutability-helper';
+import {updateValue} from "../formUtils";
 
 import {
   Button, Modal, Form, Input, Select,
@@ -15,7 +16,7 @@ class FormLeaseNetwork extends Component {
     this.state = Object.assign({
       pools,networks
     },this.initState);
-    this.updateValue=this.updateValue.bind(this);
+    this.updateValue=updateValue.bind(this);
     this.changePool=this.changePool.bind(this);
     this.changeDescription=this.changeDescription.bind(this);
     this.changeSize=this.changeSize.bind(this);
@@ -29,7 +30,6 @@ class FormLeaseNetwork extends Component {
     }
 
   render() {
-    console.log(`render`);
     const leased = this.props.leased;
     const {pools,networks}=this.state;
     const defaultPool=pools.length>0?pools[0].id:null;
@@ -56,11 +56,6 @@ class FormLeaseNetwork extends Component {
       </Modal>);
   }
 
-  updateValue(key, value) {
-    console.log(`Update ${key} = ${value}`);
-    console.log(update(this.state, {[key]: {$set: value}}));
-    this.setState(update(this.state, {[key]: {$set: value}}));
-  }
   changePool = (e) => {
     this.setState(update(this.state,{
       poolId:{ $set:e},

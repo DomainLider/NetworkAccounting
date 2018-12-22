@@ -1,5 +1,5 @@
 import React, {Component, PureComponent} from 'react';
-import update from 'immutability-helper';
+import {updateValue} from "../formUtils";
 import {
 Button, Modal, Form, Input, Select,
 } from 'antd';
@@ -10,6 +10,7 @@ class CrudPoolForm extends PureComponent {
   constructor(props) {
     super(props);
     this.state = this.initState;
+    this.updateValue = updateValue.bind(this);
   }
 
   initState = {
@@ -30,10 +31,6 @@ class CrudPoolForm extends PureComponent {
                    value={this.state.description}/></FormItem>
         </Form>
       </Modal>);
-  }
-
-  updateValue(key, value) {
-    this.setState(update(this.state, {[key]: {$set: value}}));
   }
 
   changeName = (e) => this.updateValue('name', e.target.value);
