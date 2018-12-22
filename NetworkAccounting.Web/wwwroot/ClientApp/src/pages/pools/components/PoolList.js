@@ -21,13 +21,12 @@ class PoolList extends Component {
   }
 
   render() {
-    const {poolList, dispatch} = this.props;
+    const {poolList} = this.props;
     const rowSelection = {
       selectedRowKeys: this.state.selectedRowKeys,
       onChange: this.onSelectChange
     };
     return [
-      <Button onClick={() => dispatch({type: 'forms/open', payload: {form: 'crudPool'}})}>Новый пул</Button>,
       <Button onClick={this.onRemovePool }>Удалить пул</Button>,
       <Table rowSelection={rowSelection} rowKey={(row)=>row.id} dataSource={lodash.values(poolList.pools)} columns={columns} size='small'/>,
 

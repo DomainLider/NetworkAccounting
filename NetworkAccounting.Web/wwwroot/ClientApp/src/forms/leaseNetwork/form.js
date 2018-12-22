@@ -8,24 +8,28 @@ import {
 const FormItem = Form.Item;
 const Option = Select.Option;
 
-class FormLeaseNetwork extends PureComponent {
+class FormLeaseNetwork extends Component {
   constructor(props) {
     super(props);
     const {pools,networks}=this.props;
     this.state = Object.assign({
       pools,networks
     },this.initState);
+    this.updateValue=this.updateValue.bind(this);
+    this.changePool=this.changePool.bind(this);
+    this.changeDescription=this.changeDescription.bind(this);
+    this.changeSize=this.changeSize.bind(this);
   }
 
   initState = {
       size: 24,
       poolId: 1,
-      fromId:null,
+      fromId:null, //сеть родитель
       description: 'Новая подсеть',
-      network: null
     }
 
   render() {
+    console.log(`render`);
     const leased = this.props.leased;
     const {pools,networks}=this.state;
     const defaultPool=pools.length>0?pools[0].id:null;
@@ -41,7 +45,7 @@ class FormLeaseNetwork extends PureComponent {
           <FormItem label='Размер сети' required><Input onChange={this.changeSize} value={this.state.size}/></FormItem>
           <FormItem label='Сеть-родитель'>
             <Select onChange={this.changeFromId}>
-              {froms.map(p=><Option key={p.id} value={p.id}>{p.address}/{p.size}</Option>)}
+              {froms.map(p=><Option key={p.id} value={p.id}>{p.address}/{p.size} {p.description||null}</Option>)}
             </Select>
           </FormItem>
           <FormItem label='Описание'><Input onChange={this.changeDescription}
@@ -53,15 +57,16 @@ class FormLeaseNetwork extends PureComponent {
   }
 
   updateValue(key, value) {
+    console.log(`Update ${key} = ${value}`);
+    console.log(update(this.state, {[key]: {$set: value}}));
     this.setState(update(this.state, {[key]: {$set: value}}));
   }
   changePool = (e) => {
-    this.updateValue('poolId', e);
-    this.changeFromId(null);
-  }
-  changeFromId = (e) => {
-    this.updateValue('fromId', e);
-  }
+    this.setState(update(this.state,{
+      poolId:{ $set:e},
+      fromId: {$set:null}
+    }))
+  };
   changeSize = (e) => this.updateValue('size', e.target.value);
   changeDescription = (e) => this.updateValue('description', e.target.value);
 

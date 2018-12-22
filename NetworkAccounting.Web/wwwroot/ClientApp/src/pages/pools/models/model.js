@@ -9,18 +9,39 @@ export default {
     },
   },
   effects:{
+    /**
+     * Обновить список пулов
+     * @param payload
+     * @param put
+     * @param call
+     * @returns {IterableIterator<*>}
+     */
     *load(payload,{put,call}){
        const response=yield call(ListPools);
        yield put({type:'updatePools',pools:response.data});
     },
 
+    /**
+     * Добавить пул
+     * @param name
+     * @param description
+     * @param put
+     * @param call
+     * @returns {IterableIterator<*>}
+     */
     *addPool({payload:{name,description}},{put,call}){
-      debugger;
       const response=yield call(AddPool,{name,description});
       if (response.status!==200) return ;//Error in add pool
       yield put({type:'poolList/load'});
     },
 
+    /**
+     * Удалить пул
+     * @param ids
+     * @param put
+     * @param call
+     * @returns {IterableIterator<*>}
+     */
     *removePool({payload:{ids}},{put,call}){
       for (const id of ids){
         const response=yield call(RemovePool,id);

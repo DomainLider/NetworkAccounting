@@ -37,20 +37,17 @@ class Page extends PureComponent {
   }
 
   render(){
-    const form=this.state.leaseForm?
-      <LeaseForm
-                 onLeaseNetwork={this.leaseNetwork}
-                 onClose={this.closeForm}
-                 networks={_.values(this.props.networkList.networks)}
-                 pools={_.values(this.props.poolList.pools)}
-                 leased={this.props.networkList.leased}
-      />
-      :null;
     return(
       <div>
         <Button onClick={this.openForm}>Арендовать сеть</Button>,
         <NetworkTable/>
-        {form}
+        {this.state.leaseForm?<LeaseForm
+          onLeaseNetwork={this.leaseNetwork}
+          onClose={this.closeForm}
+          networks={_.values(this.props.networkList.networks)}
+          pools={_.values(this.props.poolList.pools)}
+          leased={this.props.networkList.leased}
+        />:null}
       </div>);
   }
 }

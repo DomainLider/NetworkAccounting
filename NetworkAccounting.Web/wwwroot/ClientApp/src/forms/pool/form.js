@@ -1,32 +1,26 @@
 import React, {Component, PureComponent} from 'react';
-
+import update from 'immutability-helper';
 import {
-  Button, Modal, Form, Input, Select,
+Button, Modal, Form, Input, Select,
 } from 'antd';
 
 const FormItem = Form.Item;
-import {connect} from 'dva';
-import update from 'immutability-helper';
 
 class CrudPoolForm extends PureComponent {
   constructor(props) {
     super(props);
-    this.addPool = this.addPool.bind(this);
-    this.close = this.close.bind(this);
-    this.state = this.initState();
+    this.state = this.initState;
   }
 
-  initState = () => ({
+  initState = {
       name: 'NEW_POOL',
       description: 'Новый пул',
-    }
-  );
+    };
 
   render() {
-    const visible = this.props.crudPool.visible;
     return (
-      <Modal visible={visible} title='Добавить пул' okText='Создать пул' onOk={this.addPool}
-             cancelText='Закрыть' onCancel={this.close}>
+      <Modal visible title='Добавить пул' okText='Создать пул' onOk={()=>this.props.onAddPool(this.state)}
+             cancelText='Закрыть' onCancel={this.props.onClose} >
         <Form layout='vertical'>
           <FormItem label='Введите имя пула' required>
             <Input onChange={this.changeName}
@@ -38,22 +32,6 @@ class CrudPoolForm extends PureComponent {
       </Modal>);
   }
 
-  addPool() {
-    const dispatch = this.props.dispatch;
-    dispatch({
-      type:'poolList/addPool',
-      payload:{
-        name:this.state.name,
-        description:this.state.description
-      }
-    });
-  }
-
-  close() {
-    this.props.dispatch({type: 'forms/close', payload: {form: 'crudPool'}});
-    this.setState(this.initState());
-  }
-
   updateValue(key, value) {
     this.setState(update(this.state, {[key]: {$set: value}}));
   }
@@ -63,4 +41,4 @@ class CrudPoolForm extends PureComponent {
 
 }
 
-export default connect(({forms: {crudPool}, poolList}) => ({crudPool, poolList}))(CrudPoolForm);
+export default CrudPoolForm;
