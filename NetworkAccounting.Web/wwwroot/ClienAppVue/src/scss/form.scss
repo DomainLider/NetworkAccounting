@@ -1,0 +1,16 @@
+@import "./color";
+@import "./layout";
+
+.form {
+  color: $tc_primary;
+  border: 1px solid lighten($bg_primary,10);
+  background: $bg_primary;
+}
+
+.form_header {
+  @include px1();//
+}
+.form_body {
+  background: darken($bg_primary,1.5);
+  color: $tc_secondary;
+}

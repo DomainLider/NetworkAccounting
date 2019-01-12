@@ -17,12 +17,5 @@
     @import "../../scss/color";
     @import "../../scss/layout";
     
-    .card {
-        @include px2();
-        background-color: $bg_card;
-        color:white;
-        &:hover {
-            background-color: $bg_card_hover;
-        }
-    }
+    
 </style>
