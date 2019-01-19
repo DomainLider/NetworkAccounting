@@ -1,0 +1,9 @@
+@import './color';
+@import './layout';
+
+.window {
+  @include px1();
+  min-height: 100px;
+  min-width: 100px;
+  border: 1px solid $bg_card_hover;
+}

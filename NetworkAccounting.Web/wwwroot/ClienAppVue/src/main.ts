@@ -4,11 +4,12 @@ import router from './router'
 import store from './store'
 import 'normalize.css'
 
-import 'devextreme/dist/css/dx.common.css';
-// import 'devextreme/dist/css/dx.light.compact.css';
-import 'devextreme/dist/css/dx.darkmoon.compact.css';
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
 
 Vue.config.productionTip = false
+
 
 new Vue({
   router,
