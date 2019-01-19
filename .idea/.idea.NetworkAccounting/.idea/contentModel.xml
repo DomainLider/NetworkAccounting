@@ -7865,6 +7865,8 @@
                 <e p="background" t="Include">
                   <e p="bg1.jpg" t="Include" />
                   <e p="bg2.jpg" t="Include" />
+                  <e p="ms1.png" t="Include" />
+                  <e p="ms2.jpg" t="Include" />
                 </e>
                 <e p="logo.png" t="Include" />
               </e>

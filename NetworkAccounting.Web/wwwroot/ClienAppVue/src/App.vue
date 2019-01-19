@@ -21,7 +21,7 @@
         -moz-osx-font-smoothing: grayscale;
         text-align: center;
         color: #2c3e50;
-        background: #1f628d ;
+        background: linear-gradient(to right, rgba(28,98,192,0.4), rgba(28, 98, 192, 0.5)), url(./assets/background/ms1.png) repeat ;
         height: 100%;
     }
 

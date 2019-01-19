@@ -10,7 +10,7 @@
                         el-button(size="mini") Pools
                         el-button(size="mini") Statistics
                         el-button(type="success" size="mini") Logout
-        el-container
+        el-container         
             el-aside
             el-main
                 h1 Main
@@ -26,7 +26,6 @@
       ...EL
     },
     mounted() {
-      console.log("sssd");
     }
   }
 </script>
