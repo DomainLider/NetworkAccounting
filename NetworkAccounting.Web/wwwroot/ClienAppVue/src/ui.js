@@ -9,6 +9,9 @@ import {
   Header as ElHeader,
   Button as ElButton,
   ButtonGroup as ElButtonGroup,
+  Menu as ElMenu,
+  MenuItem as ElMenuItem,
+  MenuItemGroup as ElMenuItemGroup
 } from 'element-ui';
 
 export {
@@ -22,6 +25,7 @@ export {
   ElProgress,
   ElButton,
   ElButtonGroup,
+  ElMenu, ElMenuItem, ElMenuItemGroup
 };
 
 
