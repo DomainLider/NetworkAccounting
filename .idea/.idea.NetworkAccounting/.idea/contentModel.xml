@@ -71,66 +71,22 @@
             <e p="node_modules" t="Include">
               <e p=".cache" t="Include">
                 <e p="babel-loader" t="Include">
-                  <e p="21d68ddb415e39075b55275c9549f52f.json" t="Include" />
-                  <e p="436fced998fc62a2deb831ec9640a2c2.json" t="Include" />
-                  <e p="7d7cab97f1cef2f2e4a6fdc4616acadd.json" t="Include" />
-                  <e p="8d34ae7922ac628050eb2acd05361264.json" t="Include" />
-                  <e p="a81bf7586951193b6097cbd37cde5d90.json" t="Include" />
-                  <e p="aad05d958f2598f5d1fd3c3845ec238f.json" t="Include" />
-                  <e p="c326fccbfe1b3cbfca297bca130de698.json" t="Include" />
-                  <e p="f8a606706ca01ccb1a1e6c0da9f35b8c.json" t="Include" />
-                </e>
-                <e p="ts-loader" t="Include">
-                  <e p="14d8a2efd155a2c797966930ae0ea692.json" t="Include" />
-                  <e p="204d75bac258346b1e56b6ea9b37af7b.json" t="Include" />
-                  <e p="320c69cdd32b4a60926d58e2621f2118.json" t="Include" />
-                  <e p="63ff82d6da7c286bba0e58ff3ab3050d.json" t="Include" />
-                  <e p="fc6f4d36999b8c56102fdea880e02f5e.json" t="Include" />
+                  <e p="19e660fd46e5e4d8c02a7f18213bae60.json" t="Include" />
+                  <e p="f9ee05db4502373cc6744a7566e05726.json" t="Include" />
                 </e>
                 <e p="vue-loader" t="Include">
-                  <e p="1309917f0835c7cd692ee033585c97bc.json" t="Include" />
-                  <e p="14af222a8c6a98a14f3a2315890a794a.json" t="Include" />
-                  <e p="303a27efefdfa27ff042b0891ceb44ca.json" t="Include" />
-                  <e p="34acc5a0a19a83927930ccab87d5ac6f.json" t="Include" />
-                  <e p="35e9fd07977a11855f5e8aa412288fb4.json" t="Include" />
-                  <e p="37f1094a23c8e7b034582eef84d4f527.json" t="Include" />
-                  <e p="3db7f5e11c65dd83f828ed27b97b938c.json" t="Include" />
-                  <e p="461c7ce9603397be56b2b42723f5efdf.json" t="Include" />
-                  <e p="487ad72b97f921a980a9cb65c9b33d4d.json" t="Include" />
-                  <e p="4b8b894aa25606ff43fbd3e47bab4b2e.json" t="Include" />
-                  <e p="4c6daa5a899110b4101a41549d97f458.json" t="Include" />
-                  <e p="6b0c57122351706bda2f62c211b21801.json" t="Include" />
-                  <e p="6ce02f834c97898420a52830b4055a29.json" t="Include" />
-                  <e p="706caeaa5c4f8a3ca72c7d2e748b5098.json" t="Include" />
-                  <e p="735603a6ea9d82bc03474e5977986f73.json" t="Include" />
-                  <e p="76abf13933b70ce46541c3e0d125d17e.json" t="Include" />
-                  <e p="7771d6cab17d980489cf244ac497fe67.json" t="Include" />
-                  <e p="8663a7f687689a39109eb177febca88a.json" t="Include" />
-                  <e p="8b82fe79a7c1e747e290f231f932de31.json" t="Include" />
-                  <e p="8e549411b36f46b7d0e3645135b04701.json" t="Include" />
-                  <e p="a10a42ecd36f423b90f0176a4acc6320.json" t="Include" />
-                  <e p="a14ac3dd0b62da902fc85dfd476701f0.json" t="Include" />
-                  <e p="a150e358eba93edaecfa57638f7629ef.json" t="Include" />
-                  <e p="a20401c7d17fd4f9cccb65c8dc25d174.json" t="Include" />
-                  <e p="a39af4a81c90771aa2278ff6549885b5.json" t="Include" />
-                  <e p="ac7025a4efe2fd0114f77b38b8d3dbb1.json" t="Include" />
-                  <e p="b6e03ae955ca12e6b00bfa3c6c4b3e54.json" t="Include" />
-                  <e p="b76c5a23db061f2d6ac2692607755e99.json" t="Include" />
-                  <e p="b8753681585588701f84afe925596304.json" t="Include" />
-                  <e p="babf413531f51bbbd2a257716b28fbc4.json" t="Include" />
-                  <e p="bda704b0b29e71e23e9282b5c27c96ea.json" t="Include" />
-                  <e p="c438bf660481c1b09bc63aabd6ecd5a1.json" t="Include" />
-                  <e p="c458f8668b92c5a17c882df9b5e5cbc3.json" t="Include" />
-                  <e p="c858f4e0bbbbc317d8a00d57899e81fb.json" t="Include" />
-                  <e p="d11e530a95fe14ec7bbf220294d974e9.json" t="Include" />
-                  <e p="d211ea1f7976020ccde16e96f11117f4.json" t="Include" />
-                  <e p="d4394feab4cb1804a9fc3b161bc05b9e.json" t="Include" />
-                  <e p="d9f5f8659314e8f7859a3664d3404117.json" t="Include" />
-                  <e p="e901f461315bb7bfeab37801ea082877.json" t="Include" />
-                  <e p="f28c428b24b4fb42fd3791a198600d0a.json" t="Include" />
-                  <e p="fbd3e5f46a139360869644aa016db18f.json" t="Include" />
-                  <e p="fc3e2f56efb296950a0d4d10149400d1.json" t="Include" />
-                  <e p="fe3ac21082088ed8a06c794d0a339804.json" t="Include" />
+                  <e p="18a99f7c61615e4bea6577eb98c6677c.json" t="Include" />
+                  <e p="24620658720165b9c99c0746cb03284f.json" t="Include" />
+                  <e p="2f8704dd6ee968a179d8862d900a4854.json" t="Include" />
+                  <e p="3baa2aeb9bf33d4fe40bbf081e349d47.json" t="Include" />
+                  <e p="55d979d8d122fa20e6d66d3b956fa5a5.json" t="Include" />
+                  <e p="5aba8a987555d7e6c275769f496238e2.json" t="Include" />
+                  <e p="5bce50ab39bc9f0a1286c823552d169b.json" t="Include" />
+                  <e p="6e82897a0be3ce08e793b5a0c3ca911b.json" t="Include" />
+                  <e p="6ecf0544b4ea821b56b7a2d2fff25a55.json" t="Include" />
+                  <e p="8683d3ef01becd4bff6a0040c07eef9c.json" t="Include" />
+                  <e p="b6c8769c4b57cc7f340e0d4166cab1ce.json" t="Include" />
+                  <e p="f9e1a63a7bfc00c901b73664632015bb.json" t="Include" />
                 </e>
               </e>
               <e p="@types" t="IncludeRecursive">
@@ -225,6 +181,12 @@
                 <e p="data" t="Include">
                   <e p="ApiNetworks.vue" t="Include" />
                   <e p="ApiPools.vue" t="Include" />
+                </e>
+                <e p="menu" t="Include">
+                  <e p="NavMenu.vue" t="Include" />
+                </e>
+                <e p="table" t="Include">
+                  <e p="NetworkGrid.vue" t="Include" />
                 </e>
                 <e p="toolbar" t="Include">
                   <e p="Toolbar.vue" t="Include" />
