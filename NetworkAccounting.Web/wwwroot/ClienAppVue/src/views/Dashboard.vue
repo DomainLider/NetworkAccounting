@@ -6,15 +6,19 @@
                     el-col(:span="8")
                         h2 Network Accounting
                     el-col.p5(:span="16")    
-                        el-button(size="mini") Networks
-                        el-button(size="mini") Pools
-                        el-button(size="mini") Statistics
+                        <!--el-button(size="mini") Networks-->
+                        <!--el-button(size="mini") Pools-->
+                        <!--el-button(size="mini") Statistics-->
                         el-button(type="success" size="mini") Logout
         el-container         
             el-aside
                 nav-menu
             el-main
-                network-grid(:networks="networks")
+                .button-menu
+                    el-button-group
+                        el-button(size="mini") New lease
+                        el-button(size="mini") Add pool
+                network-grid(:networks="networks" :pools="pools")
         el-footer.footer
             h5 Dmitry Ryabykin
 </template>
@@ -35,13 +39,15 @@
       return {
         networks:[
           
-        ]
+        ],
+        pools:{}
       }
     },
     mounted() {
       new Api().getNetworks().then(networks=>{
         this.networks=_.values(networks.data)
       })
+      new Api().getPools().then(pools=>this.pools=pools.data);
     }
   }
 </script>
@@ -63,7 +69,14 @@
         color: #cbcbcb;
     }
     
+    .el-main {
+        padding: 0px 2px !important;    
+    }
     
+    .button-menu {
+        padding:3px;
+        display:flex;
+    }
     .p5 {
         padding: 5px;
         display: flex;
