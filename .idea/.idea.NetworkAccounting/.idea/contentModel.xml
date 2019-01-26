@@ -65,6 +65,167 @@
           <e p="PoolStore.cs" t="Include" />
         </e>
         <e p="wwwroot" t="Include">
+          <e p="ClienAppVue" t="Include">
+            <e p=".gitignore" t="Include" />
+            <e p="babel.config.js" t="Include" />
+            <e p="node_modules" t="Include">
+              <e p=".cache" t="Include">
+                <e p="babel-loader" t="Include">
+                  <e p="223a193521900a7ed6f13aa7219b9e86.json" t="Include" />
+                  <e p="6ce234c01f9532213c7e042b03312c53.json" t="Include" />
+                </e>
+                <e p="vue-loader" t="Include">
+                  <e p="0345307ceddb843c9be47043dbb10410.json" t="Include" />
+                  <e p="12c96ab3caf88f43401a986ef1861db5.json" t="Include" />
+                  <e p="35c36403b0818ec0f1b75f7defea75e0.json" t="Include" />
+                  <e p="42321ac215d238f87f572397e9bd2732.json" t="Include" />
+                  <e p="4999675003eb13cf003800b745dd6aeb.json" t="Include" />
+                  <e p="724e63e1031eccda5415e6a0449510a2.json" t="Include" />
+                  <e p="7888a77e1da5922d4afed42811e722ab.json" t="Include" />
+                  <e p="c9235c1303d6c0364ffd04a5a13a123e.json" t="Include" />
+                  <e p="d5216ecfcc56adf96123ad52d467b6d0.json" t="Include" />
+                  <e p="e6e5b2f1a2434d109cfaf37751f6055f.json" t="Include" />
+                </e>
+              </e>
+              <e p="@types" t="IncludeRecursive">
+                <e p="babel-types" t="IncludeRecursive" />
+              </e>
+              <e p="@vue\cli-plugin-babel" t="IncludeRecursive" />
+              <e p="@vue\cli-plugin-typescript" t="IncludeRecursive" />
+              <e p="@vue\cli-service" t="IncludeRecursive" />
+              <e p="axios" t="IncludeRecursive" />
+              <e p="element-ui" t="IncludeRecursive" />
+              <e p="lodash" t="IncludeRecursive" />
+              <e p="moment" t="IncludeRecursive" />
+              <e p="node-sass" t="IncludeRecursive" />
+              <e p="normalize.css" t="IncludeRecursive" />
+              <e p="sass-loader" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.dom.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.dom.iterable.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.es2015.collection.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.es2015.core.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.es2015.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.es2015.generator.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.es2015.iterable.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.es2015.promise.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.es2015.proxy.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.es2015.reflect.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.es2015.symbol.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.es2015.symbol.wellknown.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.es2016.array.include.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.es2016.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.es2016.full.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.es2017.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.es2017.full.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.es2017.intl.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.es2017.object.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.es2017.sharedmemory.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.es2017.string.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.es2017.typedarrays.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.es2018.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.es2018.full.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.es2018.intl.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.es2018.promise.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.es2018.regexp.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.es5.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.es6.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.esnext.array.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.esnext.asynciterable.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.esnext.bigint.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.esnext.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.esnext.full.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.esnext.intl.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.esnext.symbol.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.scripthost.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.webworker.d.ts" t="IncludeRecursive" />
+              <e p="typescript\lib\lib.webworker.importscripts.d.ts" t="IncludeRecursive" />
+              <e p="vue" t="IncludeRecursive" />
+              <e p="vue-class-component" t="IncludeRecursive" />
+              <e p="vue-cli-plugin-element" t="IncludeRecursive" />
+              <e p="vue-cli-plugin-pug" t="IncludeRecursive" />
+              <e p="vue-property-decorator" t="IncludeRecursive" />
+              <e p="vue-router" t="IncludeRecursive" />
+              <e p="vue-template-compiler" t="IncludeRecursive" />
+              <e p="vuex" t="IncludeRecursive" />
+              <e p="winston" t="IncludeRecursive" />
+            </e>
+            <e p="package-lock.json" t="Include" />
+            <e p="package.json" t="Include" />
+            <e p="public" t="Include">
+              <e p="favicon.ico" t="Include" />
+              <e p="index.html" t="Include" />
+            </e>
+            <e p="README.md" t="Include" />
+            <e p="src" t="Include">
+              <e p="api" t="Include">
+                <e p="Api.ts" t="Include" />
+              </e>
+              <e p="App.vue" t="Include" />
+              <e p="assets" t="Include">
+                <e p="background" t="Include">
+                  <e p="bg1.jpg" t="Include" />
+                  <e p="bg2.jpg" t="Include" />
+                  <e p="ms1.png" t="Include" />
+                  <e p="ms2.jpg" t="Include" />
+                  <e p="tr_template.jpg" t="Include" />
+                  <e p="tr_template.png" t="Include" />
+                  <e p="tr_template2.png" t="Include" />
+                  <e p="tr_template2.png~" t="Include" />
+                  <e p="tr_template3.png" t="Include" />
+                  <e p="tr_template4.png" t="Include" />
+                  <e p="tr_template5.png" t="Include" />
+                  <e p="tr_template6.png" t="Include" />
+                  <e p="tr_template6.png~" t="Include" />
+                  <e p="tr_template7.png" t="Include" />
+                  <e p="tr_template7.png~" t="Include" />
+                </e>
+                <e p="logo.png" t="Include" />
+              </e>
+              <e p="components" t="Include">
+                <e p="card" t="Include">
+                  <e p="NetworkCard.vue" t="Include" />
+                  <e p="PoolCard.vue" t="Include" />
+                </e>
+                <e p="data" t="Include">
+                  <e p="ApiNetworks.vue" t="Include" />
+                  <e p="ApiPools.vue" t="Include" />
+                </e>
+                <e p="menu" t="Include">
+                  <e p="NavMenu.vue" t="Include" />
+                </e>
+                <e p="table" t="Include">
+                  <e p="NetworkGrid.vue" t="Include" />
+                </e>
+                <e p="toolbar" t="Include">
+                  <e p="Toolbar.vue" t="Include" />
+                </e>
+              </e>
+              <e p="forms" t="Include">
+                <e p="NetworkAdd.vue" t="Include" />
+                <e p="NetworkLease.vue" t="Include" />
+              </e>
+              <e p="main.ts" t="Include" />
+              <e p="router.ts" t="Include" />
+              <e p="scss" t="Include">
+                <e p="color.scss" t="Include" />
+                <e p="form.scss" t="Include" />
+                <e p="layout.scss" t="Include" />
+                <e p="window.scss" t="Include" />
+              </e>
+              <e p="shims-tsx.d.ts" t="Include" />
+              <e p="shims-vue.d.ts" t="Include" />
+              <e p="store.ts" t="Include" />
+              <e p="ui.js" t="Include" />
+              <e p="views" t="Include">
+                <e p="About.vue" t="Include" />
+                <e p="Dashboard.vue" t="Include" />
+                <e p="Home.vue" t="Include" />
+              </e>
+            </e>
+            <e p="tsconfig.json" t="Include" />
+            <e p="yarn.lock" t="Include" />
+          </e>
           <e p="ClientApp" t="Include">
             <e p=".editorconfig" t="Include" />
             <e p=".env" t="Include" />
@@ -82,6 +243,7 @@
               <e p="react" t="IncludeRecursive" />
               <e p="react-router" t="IncludeRecursive" />
             </e>
+            <e p="node_modules\antd" t="IncludeRecursive" />
             <e p="node_modules\axios" t="IncludeRecursive" />
             <e p="node_modules\babel-eslint" t="IncludeRecursive" />
             <e p="node_modules\csstype" t="IncludeRecursive" />
@@ -106,8 +268,17 @@
                 <e p="yay.jpg" t="Include" />
               </e>
               <e p="forms" t="Include">
-                <e p="crudPool.js" t="Include" />
-                <e p="leaseNetwork.js" t="Include" />
+                <e p="formUtils.js" t="Include" />
+                <e p="leaseNetwork" t="Include">
+                  <e p="form.js" t="Include" />
+                </e>
+                <e p="network" t="Include">
+                  <e p="addform.js" t="Include" />
+                  <e p="form.js" t="Include" />
+                </e>
+                <e p="pool" t="Include">
+                  <e p="form.js" t="Include" />
+                </e>
               </e>
               <e p="global.css" t="Include" />
               <e p="layouts" t="Include">
@@ -116,14 +287,12 @@
               </e>
               <e p="models" t="Include">
                 <e p=".gitkeep" t="Include" />
-                <e p="forms.js" t="Include" />
               </e>
               <e p="pages" t="Include">
                 <e p="index.css" t="Include" />
                 <e p="index.js" t="Include" />
                 <e p="networks" t="Include">
                   <e p="components" t="Include">
-                    <e p="LeaseForm.js" t="Include" />
                     <e p="NetworkTable.js" t="Include" />
                   </e>
                   <e p="index.js" t="Include" />
@@ -137,7 +306,6 @@
                 </e>
                 <e p="pools" t="Include">
                   <e p="components" t="Include">
-                    <e p="CrudPoolForm.js" t="Include" />
                     <e p="PoolList.js" t="Include" />
                   </e>
                   <e p="index.js" t="Include" />

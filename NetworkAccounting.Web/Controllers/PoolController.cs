@@ -41,7 +41,7 @@ namespace NetworkAccounting.Web.Controllers
         }
 
         [HttpDelete("{poolId}")]
-        public void Delete(int poolId)
+        public void Delete([FromRoute] int poolId)
         {
             try
             {

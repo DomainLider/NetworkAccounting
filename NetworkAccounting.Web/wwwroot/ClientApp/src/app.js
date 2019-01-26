@@ -7,11 +7,6 @@ export const dva = {
       console.error(err.message);
     },
     initialState: {
-      forms:{
-        leaseNetwork:{
-          visible:false
-        }
-      },
       poolList:{
         pools:[]
       },

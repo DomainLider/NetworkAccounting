@@ -1,12 +1,20 @@
+import update from 'immutability-helper';
 import {GetFreeNetwork, LeaseNetwork, ListNetworks} from '../services/networkService'
+
 
 export default {
   namespace: 'networkList',
-  state: {networks:{}},
+  state: {
+    networks:{},
+    leased:null
+  },
   reducers: {
     'updateNetworks'(state,{networks}){
-      return {networks};
+      return update(state,{networks:{$set:networks}});
     },
+    'setLeased'(state,{leased}){
+      return update(state,{leased:{$set:leased}});
+    }
   },
   effects:{
     *load(payload,{put,call}){
@@ -14,16 +22,15 @@ export default {
        yield put({type:'updateNetworks',networks:response.data});
     },
 
-    *lease({payload:{size,poolId,description}},{put,call}){
-      const response=yield call(GetFreeNetwork,{size,poolId});
+    *lease({payload:{size,poolId,description,fromId}},{put,call}){
+      const response=yield call(GetFreeNetwork,{size,poolId,fromId});
       if (response.status!==200) return ; //Error get Free
       const network=response.data;
       if (!!!network) return ;// No free network
       network.description=description;
       const leaseResponse=yield call(LeaseNetwork,network);
       if (leaseResponse.status!==200) return ; //Error in lease
-
-      yield put({type:'forms/setLeasedNetwork',payload:{network:leaseResponse.data}});//update form leased network
+      yield put({type:'setLeased',leased:leaseResponse.data});//update form leased network
       yield put({type:'load'});
     }
   },

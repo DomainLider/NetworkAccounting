@@ -53,11 +53,11 @@ namespace NetworkAccounting.Web
             {
                 app.UseSpa(spa =>
                 {
-                    spa.Options.SourcePath = "ClientApp";
+                    spa.Options.SourcePath = "ClientAppVue";
 
                     if (env.IsDevelopment())
                     {
-                        spa.UseProxyToSpaDevelopmentServer("http://localhost:8000");
+                        spa.UseProxyToSpaDevelopmentServer("http://localhost:8080");
                     }
                 });
             }

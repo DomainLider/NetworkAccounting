@@ -32,7 +32,7 @@ namespace NetworkAccounting.Web.Service
 
                 var bytes = ipNetwork.GetAddressBytes().Reverse().ToArray();
                 ulong address = BitConverter.ToUInt32(bytes, 0);
-                return _networkStore.AddNetwork(address, network.Size,network.PoolId);
+                return FillUserAddress(_networkStore.AddNetwork(address, network.Size,network.PoolId));
             }
 
             throw new ArgumentException($"Невозможно преобразовать {network.Address} в IP адрес");
@@ -67,9 +67,12 @@ namespace NetworkAccounting.Web.Service
         /// <param name="size"></param>
         /// <param name="poolId"></param>
         /// <returns></returns>
-        public Network GetFreeNetwork(int size,int poolId)
+        public Network GetFreeNetwork(int size,int poolId,int? fromId)
         {
-            var networks = _networkStore.ListNetworks().Where(n=>!n.IsBusy&&n.Size<=size&&n.PoolId==poolId).OrderByDescending(n=>n.Size).ToArray();
+            var networks = _networkStore.ListNetworks().Where(n=>(n.Status==NetworkStatus.Free)
+                                                                 &&n.Size<=size
+                                                                 &&n.PoolId==poolId
+                                                                 &&((!fromId.HasValue)||n.Id==fromId)).OrderByDescending(n=>n.Size).ToArray();
             if (networks.Length > 0)
             {
                 var network = networks.First();
@@ -77,11 +80,14 @@ namespace NetworkAccounting.Web.Service
                 int count = size - network.Size;
                 for (int idx = 0; idx < count; idx++)
                 {
+                    int parentId = network.Parent ?? network.Id;
                     //TODO: transaction required
-                    network.Size = (byte)(network.Size + 1);
+                    network.Status = NetworkStatus.Parent;
                     _networkStore.ChangeNetwork(network);
-                    _networkStore.AddNetwork(network.NetworkAddress + (ulong)Math.Pow(2,32-network.Size), network.Size, poolId);
-                    network = _networkStore.GetNetwork(network.NetworkAddress);
+                    
+                    network.Size = (byte)(network.Size + 1);
+                    network=_networkStore.AddNetwork(network.NetworkAddress, (byte) network.Size, poolId,parentId);
+                    _networkStore.AddNetwork(network.NetworkAddress + (ulong)Math.Pow(2,32-network.Size), network.Size, poolId,parentId);
                 }
                 return network;                
             }
@@ -103,7 +109,7 @@ namespace NetworkAccounting.Web.Service
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Network GetNetwork(ulong id)
+        public Network GetNetwork(int id)
         {
             var network=_networkStore.GetNetwork(id);
             return FillUserAddress(network);
@@ -116,11 +122,11 @@ namespace NetworkAccounting.Web.Service
         /// Список сетей
         /// </summary>
         /// <returns></returns>
-        public Dictionary<ulong,Network> ListNetworks()
+        public Dictionary<int,Network> ListNetworks()
         {
             var networks = _networkStore.ListNetworks();
             networks.ToList().ForEach(n=>n.Address=ConvertAddressToString(n.NetworkAddress));
-            var groupedNetworks = networks.GroupBy(n=>n.NetworkAddress).ToDictionary(n=>n.Key,n=>n.ToList().First());
+            var groupedNetworks = networks.GroupBy(n=>n.Id).ToDictionary(n=>n.Key,n=>n.ToList().First());
             
             return groupedNetworks;
         }

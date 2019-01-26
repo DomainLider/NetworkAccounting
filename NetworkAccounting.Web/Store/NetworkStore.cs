@@ -8,45 +8,41 @@ namespace NetworkAccounting.Web.Store
 {
     public class NetworkStore : DbStore
     {
-        public IEnumerable<Network> ListNetworks()
+        public virtual IEnumerable<Network> ListNetworks(List<NetworkStatus> statuses=null)
         {
             using (var db = CreateConnection())
             {
                 db.Open();
-                var networks = db.Query<Network>("SELECT * FROM network");
+                var networks = statuses == null
+                    ? db.Query<Network>("SELECT * FROM network")
+                    : db.Query<Network>("SELECT * FROM network WHERE status in @statuses",new
+                    {
+                        statuses
+                    });
                 return networks;
             }
         }
-
-        public Network AddNetwork(ulong address,int size,int poolId)
+                
+        public virtual Network AddNetwork(ulong address,int size,int poolId,int? parent=null)
         {
             using (var db = CreateConnection())
             {
                 db.Open();
-                db.ExecuteScalar("INSERT INTO network(NetworkAddress,Size,PoolId) VALUES (@NetworkAddress,@Size,@PoolId)", new
+                int id=db.ExecuteScalar<int>("INSERT INTO network(NetworkAddress,Size,PoolId,Parent,Status) VALUES (@NetworkAddress,@Size,@PoolId,@Parent,0);SELECT last_insert_rowid();", new
                 {
-                    NetworkAddress=address, Size=size, PoolId=poolId
+                    NetworkAddress=address, Size=size, PoolId=poolId,Parent=parent
                 });
-                return GetNetwork(address);
+                return GetNetwork(id);
             }
         }
 
-        public Network GetNetwork(ulong id)
+        public virtual Network GetNetwork(int id)
         {
             using (var db = CreateConnection())
             {
                 db.Open();
-                Network network=db.QuerySingleOrDefault<Network>($"SELECT * FROM network WHERE NetworkAddress={id}");
+                Network network=db.QuerySingleOrDefault<Network>($"SELECT * FROM network WHERE id={id}");
                 return network;
-            }
-        }
-
-        public IEnumerable<Network> GetNetworksBySize(int size,int poolId)
-        {
-            using (var db = CreateConnection())
-            {
-                db.Open();
-                return db.Query<Network>("SELECT * FROM network WHERE Size=@size and PoolId=@PoolId", new {size,poolId});                
             }
         }
 
@@ -55,7 +51,7 @@ namespace NetworkAccounting.Web.Store
             using (var db = CreateConnection())
             {
                 db.Open();
-                db.ExecuteScalar("UPDATE network SET description=NULL,isBusy=0 WHERE NetworkAddress=@id", new {Id=id});                
+                db.ExecuteScalar("UPDATE network SET description=NULL,Status=0 WHERE Id=@id", new {Id=id});                
             }   
         }
         
@@ -64,18 +60,18 @@ namespace NetworkAccounting.Web.Store
             using (var db = CreateConnection())
             {
                 db.Open();
-                db.ExecuteScalar("UPDATE network SET description=@Description,isBusy=1 WHERE NetworkAddress=@Id", new {Id=network.NetworkAddress,network.Description});
-                return GetNetwork(network.NetworkAddress);
+                db.ExecuteScalar("UPDATE network SET description=@Description,Status=1 WHERE id=@Id", new {Id=network.Id,network.Description});
+                return GetNetwork(network.Id);
             }   
         }
 
-        public void ChangeNetwork(Network network)
+        public virtual void ChangeNetwork(Network network)
         {
             using (var db = CreateConnection())
             {
                 db.Open();
-                db.ExecuteScalar("UPDATE network SET description=@Description,poolId=@PoolId,size=@Size WHERE NetworkAddress=@NetworkAddress", 
-                    new {network.NetworkAddress,network.Description,network.PoolId,network.Size});                
+                db.ExecuteScalar("UPDATE network SET description=@Description,poolId=@PoolId,size=@Size,status=@Status,parent=@Parent WHERE Id=@Id", 
+                    new {network.Id,network.Description,network.PoolId,network.Size,network.Status,network.Parent});                
             }
         }
         
