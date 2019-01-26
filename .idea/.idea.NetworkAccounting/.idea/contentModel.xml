@@ -68,82 +68,68 @@
           <e p="ClienAppVue" t="Include">
             <e p=".gitignore" t="Include" />
             <e p="babel.config.js" t="Include" />
-            <e p="node_modules" t="Include">
-              <e p=".cache" t="Include">
-                <e p="babel-loader" t="Include">
-                  <e p="6a53e504303897ece4933f10eaeab3b7.json" t="Include" />
-                </e>
-                <e p="vue-loader" t="Include">
-                  <e p="4e96dd1445d8ce54c370c91dc90ffd90.json" t="Include" />
-                  <e p="67a53973c15b4dd00ff58a034c736c2d.json" t="Include" />
-                  <e p="c3fbbb79a4ee205c96faecf84a14bd82.json" t="Include" />
-                  <e p="dea44f1df4bd25c31ab0778fd5954686.json" t="Include" />
-                  <e p="f51a1cb116d7fbb85fae2337080c99e2.json" t="Include" />
-                </e>
-              </e>
-              <e p="@types" t="IncludeRecursive">
-                <e p="babel-types" t="IncludeRecursive" />
-              </e>
-              <e p="@vue\cli-plugin-babel" t="IncludeRecursive" />
-              <e p="@vue\cli-plugin-typescript" t="IncludeRecursive" />
-              <e p="@vue\cli-service" t="IncludeRecursive" />
-              <e p="axios" t="IncludeRecursive" />
-              <e p="element-ui" t="IncludeRecursive" />
-              <e p="lodash" t="IncludeRecursive" />
-              <e p="moment" t="IncludeRecursive" />
-              <e p="node-sass" t="IncludeRecursive" />
-              <e p="normalize.css" t="IncludeRecursive" />
-              <e p="sass-loader" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.dom.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.dom.iterable.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.es2015.collection.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.es2015.core.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.es2015.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.es2015.generator.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.es2015.iterable.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.es2015.promise.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.es2015.proxy.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.es2015.reflect.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.es2015.symbol.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.es2015.symbol.wellknown.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.es2016.array.include.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.es2016.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.es2016.full.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.es2017.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.es2017.full.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.es2017.intl.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.es2017.object.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.es2017.sharedmemory.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.es2017.string.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.es2017.typedarrays.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.es2018.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.es2018.full.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.es2018.intl.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.es2018.promise.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.es2018.regexp.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.es5.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.es6.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.esnext.array.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.esnext.asynciterable.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.esnext.bigint.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.esnext.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.esnext.full.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.esnext.intl.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.esnext.symbol.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.scripthost.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.webworker.d.ts" t="IncludeRecursive" />
-              <e p="typescript\lib\lib.webworker.importscripts.d.ts" t="IncludeRecursive" />
-              <e p="vue" t="IncludeRecursive" />
-              <e p="vue-class-component" t="IncludeRecursive" />
-              <e p="vue-cli-plugin-element" t="IncludeRecursive" />
-              <e p="vue-cli-plugin-pug" t="IncludeRecursive" />
-              <e p="vue-property-decorator" t="IncludeRecursive" />
-              <e p="vue-router" t="IncludeRecursive" />
-              <e p="vue-template-compiler" t="IncludeRecursive" />
-              <e p="vuex" t="IncludeRecursive" />
-              <e p="winston" t="IncludeRecursive" />
+            <e p="node_modules\@types" t="IncludeRecursive">
+              <e p="babel-types" t="IncludeRecursive" />
             </e>
+            <e p="node_modules\@vue\cli-plugin-babel" t="IncludeRecursive" />
+            <e p="node_modules\@vue\cli-plugin-typescript" t="IncludeRecursive" />
+            <e p="node_modules\@vue\cli-service" t="IncludeRecursive" />
+            <e p="node_modules\axios" t="IncludeRecursive" />
+            <e p="node_modules\element-ui" t="IncludeRecursive" />
+            <e p="node_modules\lodash" t="IncludeRecursive" />
+            <e p="node_modules\moment" t="IncludeRecursive" />
+            <e p="node_modules\node-sass" t="IncludeRecursive" />
+            <e p="node_modules\normalize.css" t="IncludeRecursive" />
+            <e p="node_modules\sass-loader" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.dom.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.dom.iterable.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.es2015.collection.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.es2015.core.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.es2015.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.es2015.generator.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.es2015.iterable.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.es2015.promise.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.es2015.proxy.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.es2015.reflect.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.es2015.symbol.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.es2015.symbol.wellknown.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.es2016.array.include.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.es2016.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.es2016.full.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.es2017.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.es2017.full.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.es2017.intl.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.es2017.object.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.es2017.sharedmemory.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.es2017.string.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.es2017.typedarrays.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.es2018.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.es2018.full.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.es2018.intl.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.es2018.promise.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.es2018.regexp.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.es5.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.es6.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.esnext.array.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.esnext.asynciterable.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.esnext.bigint.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.esnext.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.esnext.full.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.esnext.intl.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.esnext.symbol.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.scripthost.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.webworker.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\typescript\lib\lib.webworker.importscripts.d.ts" t="IncludeRecursive" />
+            <e p="node_modules\vue" t="IncludeRecursive" />
+            <e p="node_modules\vue-class-component" t="IncludeRecursive" />
+            <e p="node_modules\vue-cli-plugin-element" t="IncludeRecursive" />
+            <e p="node_modules\vue-cli-plugin-pug" t="IncludeRecursive" />
+            <e p="node_modules\vue-property-decorator" t="IncludeRecursive" />
+            <e p="node_modules\vue-router" t="IncludeRecursive" />
+            <e p="node_modules\vue-template-compiler" t="IncludeRecursive" />
+            <e p="node_modules\vuex" t="IncludeRecursive" />
+            <e p="node_modules\winston" t="IncludeRecursive" />
             <e p="package-lock.json" t="Include" />
             <e p="package.json" t="Include" />
             <e p="public" t="Include">

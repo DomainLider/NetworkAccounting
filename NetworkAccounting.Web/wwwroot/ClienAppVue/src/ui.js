@@ -14,6 +14,7 @@ import {
   MenuItemGroup as ElMenuItemGroup,
   Table as ElTable,
   TableColumn as ElTableColumn,
+  Tag as ElTag
 } from 'element-ui';
 
 export {
@@ -28,7 +29,8 @@ export {
   ElButton,
   ElButtonGroup,
   ElMenu, ElMenuItem, ElMenuItemGroup,
-  ElTable, ElTableColumn
+  ElTable, ElTableColumn,
+  ElTag
 };
 
 

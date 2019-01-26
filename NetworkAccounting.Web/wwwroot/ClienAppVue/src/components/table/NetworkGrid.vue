@@ -1,17 +1,21 @@
 <template lang="pug">
-    .ddd
-        el-table(style="width:100%" :data="networks" height="100%")
-            el-table-column(prop="address" label="Address" sortable)
-            el-table-column(prop="size" label="Size" sortable)
+        el-table(style="width:100%" :data="networks" height="100%" :row-class-name="classRow")
+            <!--el-table-column(label="SSS")-->
+            el-table-column(prop="address" label="Address" :formatter="formatAddress" sortable)
+            <!--el-table-column(prop="size" label="Size" sortable)-->
             el-table-column(prop="description" label="Description" sortable)
-            el-table-column(prop="parent" label="Parent")
-            el-table-column(prop="status" label="Status" :formatter="formatStatus")
-            el-table-column(prop="poolId" label="Pool"  :formatter="formatPool")
-            el-table-column(fixed="right" label="Operations" width="100")
+            <!--el-table-column(prop="parent" label="Parent")-->
+            el-table-column(prop="status" label="Status")
                 template(slot-scope="scope")
-                    el-button( size="mini" v-if="scope.row.status===0") Lease
-                    el-button( size="mini" type="warning" v-else-if="scope.row.status===2") Release
-        network-lease(:visible="true")        
+                    el-tag(size="mini") {{ formatStatus(scope.row) }}
+            el-table-column(prop="poolId" label="Pool")
+                template(slot-scope="scope")
+                    el-tag(size="mini") {{ formatPool(scope.row) }}
+            el-table-column(fixed="right" label="Operations" width="100")
+                template(slot-scope="scope")                 
+                    el-button( size="mini" type="warning" v-if="scope.row.status===2") Release
+                    span(v-else) &nbsp
+        <!--network-lease(:visible="true")        -->
 </template>
 
 <script>
@@ -24,9 +28,16 @@
     props:['networks','pools'],
     name: "NetworkGrid",
     methods:{
+      classRow(row,rowIndex){
+        if (row.row.status===0) return "network-free";
+        return "network-busy";
+      },
+      formatAddress(row,column){
+        return `${row.address}/${row.size}`;
+      },
       formatPool(row,column){
         if (this.pools){
-          //return this.pools[row.poolId].description;
+          return this.pools[row.poolId].description;
         }
         return row.poolId;
       },
@@ -42,12 +53,19 @@
         /*background-color: rgba(0,0,0,0) !important;*/
         th {
             padding: 2px !important;
-            background: linear-gradient(to top,rgba(100,100,100,1),rgba(28,98,192,0.4),#ABF) !important;
+            background-color: rgba(28, 92, 128, 1) !important;
+            /*background: linear-gradient(to top, rgb(51, 81, 100),rgba(28,98,192,0.4), #767eff) !important;*/
             color: #FFF !important;
         }
         tr {
             /*color: #F2CE79;*/
             /*background-color: rgba(0,0,0,0) !important;*/
+            &.network-free {
+                background-color: rgba(0, 175, 0, 0.34) !important;
+            }
+            &.network-busy {
+                background-color: rgba(200, 144, 32, 0.61) !important;
+            }
         }
         td {
             padding: 2px !important;

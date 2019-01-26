@@ -11,13 +11,15 @@
                         <!--el-button(size="mini") Statistics-->
                         el-button(type="success" size="mini") Logout
         el-container         
-            el-aside
+            el-aside.w200
                 nav-menu
             el-main
                 .button-menu
                     el-button-group
-                        el-button(size="mini") New lease
-                        el-button(size="mini") Add pool
+                        el-button(size="mini" icon="el-icon-circle-plus") New lease
+                        el-button(size="mini" icon="el-icon-edit") Add pool
+                        el-button(size="mini" icon="el-icon-circle-minus") Export
+                        el-button(size="mini" icon="el-icon-circle-close") Find
                 network-grid(:networks="networks" :pools="pools")
         el-footer.footer
             h5 Dmitry Ryabykin
@@ -45,7 +47,7 @@
     },
     mounted() {
       new Api().getNetworks().then(networks=>{
-        this.networks=_.values(networks.data)
+        this.networks=_.values(networks.data).filter(d=>d.status!==1);
       })
       new Api().getPools().then(pools=>this.pools=pools.data);
     }
@@ -82,7 +84,9 @@
         display: flex;
         justify-content: flex-end;
     }
-    
+    .w200 {
+        width:200px !important;
+    }
     
     //menu background rgba(73, 91, 117, 0.22)
     //menu text color #FFF
