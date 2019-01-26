@@ -65,7 +65,7 @@
             /*color: #F2CE79;*/
             /*background-color: rgba(0,0,0,0) !important;*/
             &.network-free {
-                background: url(../../assets/background/tr_template6.png) repeat top center;
+                background: linear-gradient(right, rgba(54, 128, 70, 0.2),rgba(54, 128, 70,0.4)),url(../../assets/background/tr_template7.png) repeat top center;
                 /*background-color: rgba(0, 175, 0, 0.34) !important;*/
             }
             &.network-busy {
