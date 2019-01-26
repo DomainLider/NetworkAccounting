@@ -16,12 +16,15 @@
             el-main
                 .button-menu
                     el-button-group
-                        el-button(size="mini" icon="el-icon-circle-plus") New lease
-                        el-button(size="mini" icon="el-icon-edit") Add pool
+                        el-button(size="mini" icon="el-icon-circle-plus" @click="dialogLeaseNetwork=true") New lease
+                        <!--el-button(size="mini" icon="el-icon-edit") Add pool-->
                         el-button(size="mini" icon="el-icon-circle-minus") Export
                         el-button(size="mini" icon="el-icon-circle-minus") Import
                         el-button(size="mini" icon="el-icon-circle-close") Find
                 network-grid(:networks="networks" :pools="pools" @releaseNetwork="releaseNetwork")
+                el-dialog(title="New lease" :visible.sync="dialogLeaseNetwork")
+                    el-button(size="large" @click="dialogLeaseNetwork=false") Close
+                    
         el-footer.footer
             h5 Dmitry Ryabykin
 </template>
@@ -43,7 +46,8 @@
         networks:[
           
         ],
-        pools:{}
+        pools:{},
+        dialogLeaseNetwork:false,
       }
     },
     methods:{
