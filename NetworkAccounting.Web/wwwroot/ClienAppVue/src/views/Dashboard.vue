@@ -19,8 +19,9 @@
                         el-button(size="mini" icon="el-icon-circle-plus") New lease
                         el-button(size="mini" icon="el-icon-edit") Add pool
                         el-button(size="mini" icon="el-icon-circle-minus") Export
+                        el-button(size="mini" icon="el-icon-circle-minus") Import
                         el-button(size="mini" icon="el-icon-circle-close") Find
-                network-grid(:networks="networks" :pools="pools")
+                network-grid(:networks="networks" :pools="pools" @releaseNetwork="releaseNetwork")
         el-footer.footer
             h5 Dmitry Ryabykin
 </template>
@@ -45,10 +46,30 @@
         pools:{}
       }
     },
+    methods:{
+      releaseNetwork(id){
+        const _this=this;
+        this.$confirm('This will network release. Continue?', 'Warning', {
+          confirmButtonText: 'OK',
+          cancelButtonText: 'Cancel',
+          type: 'warning'
+        })
+        .then(()=>{
+            return new Api().releaseNetwork(id);  
+        })
+        .then(()=>{
+          _this.updateNetworks();
+        })
+      },
+      
+      updateNetworks(){
+        new Api().getNetworks().then(networks=>{
+          this.networks=_.values(networks.data).filter(d=>d.status!==1);
+        });
+      }
+    },
     mounted() {
-      new Api().getNetworks().then(networks=>{
-        this.networks=_.values(networks.data).filter(d=>d.status!==1);
-      })
+      this.updateNetworks();
       new Api().getPools().then(pools=>this.pools=pools.data);
     }
   }

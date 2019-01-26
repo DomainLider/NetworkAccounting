@@ -14,4 +14,8 @@ export default class Api {
     public getPools():Promise<any> {
         return this.transport.get('/api/pool');
     }
+    
+    public releaseNetwork(id:number):Promise<any> {
+        return this.transport.post(`/api/network/release/${id}`);
+    }
 }

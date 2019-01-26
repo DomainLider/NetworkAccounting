@@ -13,7 +13,7 @@
                     el-tag(size="mini") {{ formatPool(scope.row) }}
             el-table-column(fixed="right" label="Operations" width="100")
                 template(slot-scope="scope")                 
-                    el-button( size="mini" type="warning" v-if="scope.row.status===2") Release
+                    el-button( size="mini" type="warning" v-if="scope.row.status===2" @click="releaseNetwork(scope.row)") Release
                     span(v-else) &nbsp
         <!--network-lease(:visible="true")        -->
 </template>
@@ -37,12 +37,16 @@
       },
       formatPool(row,column){
         if (this.pools){
-          return this.pools[row.poolId].description;
+          return this.pools[row.poolId].description||'X';
         }
         return row.poolId;
       },
       formatStatus(row,column){
         return statuses[row.status];
+      },
+      
+      releaseNetwork(network){
+        this.$emit('releaseNetwork',network.id)
       }
     }
   }
@@ -61,13 +65,15 @@
             /*color: #F2CE79;*/
             /*background-color: rgba(0,0,0,0) !important;*/
             &.network-free {
-                background-color: rgba(0, 175, 0, 0.34) !important;
+                background: url(../../assets/background/tr_template6.png) repeat top center;
+                /*background-color: rgba(0, 175, 0, 0.34) !important;*/
             }
             &.network-busy {
-                background-color: rgba(200, 144, 32, 0.61) !important;
+                background-color: rgba(184, 132, 29, 0.29) !important;
             }
         }
         td {
+            line-height:20px !important;
             padding: 2px !important;
         }
     }
