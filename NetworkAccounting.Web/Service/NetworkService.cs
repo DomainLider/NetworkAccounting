@@ -32,7 +32,7 @@ namespace NetworkAccounting.Web.Service
 
                 var bytes = ipNetwork.GetAddressBytes().Reverse().ToArray();
                 ulong address = BitConverter.ToUInt32(bytes, 0);
-                return _networkStore.AddNetwork(address, network.Size,network.PoolId);
+                return FillUserAddress(_networkStore.AddNetwork(address, network.Size,network.PoolId));
             }
 
             throw new ArgumentException($"Невозможно преобразовать {network.Address} в IP адрес");

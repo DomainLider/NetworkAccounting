@@ -13,18 +13,16 @@
                     el-tag(size="mini") {{ formatPool(scope.row) }}
             el-table-column(fixed="right" label="Operations" width="100")
                 template(slot-scope="scope")                 
-                    el-button( size="mini" type="warning" v-if="scope.row.status===2" @click="releaseNetwork(scope.row)") Release
+                    el-button( size="mini" type="warning" v-if="scope.row.status===1" @click="releaseNetwork(scope.row)") Release
                     span(v-else) &nbsp
-        <!--network-lease(:visible="true")        -->
 </template>
 
 <script>
   import EL from '../../ui';
-  import NetworkLease from '../form/NetworkLease';
   
-  const statuses = ['Free','Parent','Busy'];
+  const statuses = ['Free','Busy','Parent'];
   export default {
-    components:{...EL, NetworkLease},
+    components:{...EL },
     props:['networks','pools'],
     name: "NetworkGrid",
     methods:{
@@ -36,9 +34,9 @@
         return `${row.address}/${row.size}`;
       },
       formatPool(row,column){
-        if (this.pools){
-          return this.pools[row.poolId].description||'X';
-        }
+        // if (this.pools){
+        //   return this.pools[row.poolId].description||'X';
+        // }
         return row.poolId;
       },
       formatStatus(row,column){
@@ -65,7 +63,7 @@
             /*color: #F2CE79;*/
             /*background-color: rgba(0,0,0,0) !important;*/
             &.network-free {
-                background: linear-gradient(right, rgba(54, 128, 70, 0.2),rgba(54, 128, 70,0.4)),url(../../assets/background/tr_template7.png) repeat top center;
+                background: linear-gradient(to right, rgba(54, 128, 70, 0.2),rgba(54, 128, 70,0.4)),url(../../assets/background/tr_template7.png) repeat top center;
                 /*background-color: rgba(0, 175, 0, 0.34) !important;*/
             }
             &.network-busy {

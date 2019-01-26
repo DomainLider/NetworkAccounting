@@ -15,7 +15,8 @@ import {
   Table as ElTable,
   TableColumn as ElTableColumn,
   Tag as ElTag,
-  Dialog as ElDialog
+  Dialog as ElDialog,
+  Form as ElForm, FormItem as ElFormItem
 } from 'element-ui';
 
 export {
@@ -32,7 +33,8 @@ export {
   ElMenu, ElMenuItem, ElMenuItemGroup,
   ElTable, ElTableColumn,
   ElTag,
-  ElDialog
+  ElDialog,
+  ElForm, ElFormItem
 };
 
 

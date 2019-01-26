@@ -17,14 +17,14 @@
                 .button-menu
                     el-button-group
                         el-button(size="mini" icon="el-icon-circle-plus" @click="dialogLeaseNetwork=true") New lease
+                        el-button(size="mini" icon="el-icon-circle-plus" @click="dialogNetworkAdd=true") Add network
                         <!--el-button(size="mini" icon="el-icon-edit") Add pool-->
                         el-button(size="mini" icon="el-icon-circle-minus") Export
                         el-button(size="mini" icon="el-icon-circle-minus") Import
                         el-button(size="mini" icon="el-icon-circle-close") Find
                 network-grid(:networks="networks" :pools="pools" @releaseNetwork="releaseNetwork")
-                el-dialog(title="New lease" :visible.sync="dialogLeaseNetwork")
-                    el-button(size="large" @click="dialogLeaseNetwork=false") Close
-                    
+                network-lease(:visible="dialogLeaseNetwork" @onClose="dialogLeaseNetwork=false" :networks="networks" :pools="pools")
+                network-add(:visible="dialogNetworkAdd" @onClose="dialogNetworkAdd=false" :pools="pools")
         el-footer.footer
             h5 Dmitry Ryabykin
 </template>
@@ -32,6 +32,8 @@
 <script>
   import * as EL from '../ui'
   import NetworkGrid from '../components/table/NetworkGrid';
+  import NetworkLease from '../forms/NetworkLease';
+  import NetworkAdd from '../forms/NetworkAdd';
   import Api from '../api/Api';
   import _ from 'lodash';
   import NavMenu from "../components/menu/NavMenu";
@@ -39,15 +41,22 @@
     components: {
       NavMenu,
       ...EL,
-      NetworkGrid
+      NetworkGrid,
+      NetworkLease,
+      NetworkAdd,
     },
     data(){
       return {
+        form:{
+          size:24,
+          description:'New network'
+        },
         networks:[
           
         ],
         pools:{},
         dialogLeaseNetwork:false,
+        dialogNetworkAdd:false,
       }
     },
     methods:{
@@ -68,7 +77,7 @@
       
       updateNetworks(){
         new Api().getNetworks().then(networks=>{
-          this.networks=_.values(networks.data).filter(d=>d.status!==1);
+          this.networks=_.values(networks.data).filter(d=>d.status!==2);
         });
       }
     },
