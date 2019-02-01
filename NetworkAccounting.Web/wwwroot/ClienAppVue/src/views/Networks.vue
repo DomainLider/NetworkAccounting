@@ -82,11 +82,20 @@
       BusApi.$on(BusApi.events.DATA_POOLS,(pools)=>{
         this.pools=pools;
       });
+      BusApi.$on(BusApi.events.ERROR,(error)=>{
+        this.$notify({
+          title: 'Error',
+          message: `Error: ${error.message}`,
+          type: 'success',
+          duration: 0
+        });
+      });
       this.updateNetworks();
     },
     beforeDestroy(){
       BusApi.$off(BusApi.events.DATA_NETWORKS);
       BusApi.$off(BusApi.events.DATA_POOLS);
+      BusApi.$off(BusApi.events.ERROR);
     }
   }
 </script>
