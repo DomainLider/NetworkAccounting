@@ -14,7 +14,8 @@
 <script>
     import * as EL from '../ui';
     import _ from 'lodash';
-    import Api from '../api/Api';
+    import BusApi from '../bus/BusApi';
+    
     export default {
         props:['visible','pools'],
         components: { ...EL },
@@ -27,25 +28,30 @@
             }
           }
         },
+      mounted(){
+          BusApi.$on(BusApi.events.POST_ADD_NETWORK_OK,
+            (network)=>{
+              this.$notify({
+                title: 'Network add',
+                message: `New network: ${network.address}/${network.size}`,
+                type: 'success',
+                duration: 0
+              });
+              BusApi.$emit(BusApi.events.GET_NETWORKS);
+              this.$emit('onClose');
+            }
+          );
+      },
+      beforeDestroy(){
+        BusApi.$off(BusApi.events.POST_ADD_NETWORK_OK);
+      },
       methods:{
           addNetwork(){
             const poolId=this.form.pool;
             const a=this.form.address.split('/');
             if (a.length!==2) return;
             const [address,size]=a;
-            new Api().addNetwork({address,size,poolId}).then(
-              (network)=>{
-                debugger;
-                this.$notify({
-                  title: 'Network add',
-                  message: `New network: ${network.address}/${network.size}`,
-                  type: 'success',
-                  duration: 0
-                });
-                this.$emit('onClose');
-              }
-            )
-            
+            BusApi.$emit(BusApi.events.POST_ADD_NETWORK,{address,size,poolId});
           }
       },
       computed:{

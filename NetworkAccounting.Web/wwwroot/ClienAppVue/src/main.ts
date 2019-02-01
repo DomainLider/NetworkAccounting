@@ -8,6 +8,10 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 
+import VueRx from 'vue-rx'
+
+Vue.use(VueRx);
+
 Vue.config.productionTip = false
 
 

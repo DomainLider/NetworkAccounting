@@ -19,7 +19,7 @@
 <script>
     import * as EL from '../ui';
     import _ from 'lodash';
-    import Api from '../api/Api';
+    import BusApi from '../bus/BusApi';
     export default {
         props:['visible','networks','pools'],
         components: { ...EL },
@@ -34,27 +34,28 @@
             }
           }
         },
+      mounted(){
+        BusApi.$on(BusApi.events.GET_FREE_NETWORK_OK,({id})=>{
+          BusApi.$emit(BusApi.events.POST_LEASE,{id:id,description:this.form.description})
+        });
+        BusApi.$on(BusApi.events.POST_LEASE_OK,(network)=>{
+          this.$notify({
+            title: 'Network lease',
+            message: `Lease network: ${network.address}/${network.size}`,
+            type: 'success',
+            duration: 0
+          });
+          BusApi.$emit(BusApi.events.GET_NETWORKS);
+          this.$emit('onClose');
+        })
+      },
+      beforeDestroy(){
+        BusApi.$off(BusApi.events.GET_FREE_NETWORK_OK);
+        BusApi.$off(BusApi.events.POST_LEASE_OK);
+      },
       methods:{
           leaseNetwork(){
-            const request=(this.form.id===null)?
-                new Api().getFreeNetwork({size:this.form.size,poolId:this.form.pool,fromId:this.form.id})
-              :Promise.resolve(this.form.id);
-            
-            request.then(id=>{
-              debugger;
-              return new Api().leaseNetwork({id:id,description:this.form.description}) 
-            }).then(
-              (network)=>{
-                this.$notify({
-                  title: 'Network lease',
-                  message: `Lease network: ${network.address}/${network.size}`,
-                  type: 'success',
-                  duration: 0
-                });
-                this.$emit('onClose');
-              }
-            )
-            
+            BusApi.$emit(BusApi.events.GET_FREE_NETWORK,{size:this.form.size,poolId:this.form.pool,fromId:this.form.id});
           }
       },
       computed:{

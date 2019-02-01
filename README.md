@@ -14,7 +14,7 @@ This microservice features:
 
 Language and frameworks:
 1. Backend .NET Core 2.1
-1. Frontend Antd (React+Redux+DVA+UMI)
+1. Frontend Vue+Element.io
 
 Install and run project:
 1. Install .NET CORE runtime

@@ -1,10 +1,7 @@
 <template lang="pug">
         el-table(style="width:100%" :data="networks" height="100%" :row-class-name="classRow")
-            <!--el-table-column(label="SSS")-->
             el-table-column(prop="address" label="Address" :formatter="formatAddress" sortable)
-            <!--el-table-column(prop="size" label="Size" sortable)-->
             el-table-column(prop="description" label="Description" sortable)
-            <!--el-table-column(prop="parent" label="Parent")-->
             el-table-column(prop="status" label="Status")
                 template(slot-scope="scope")
                     el-tag(size="mini") {{ formatStatus(scope.row) }}
@@ -34,9 +31,9 @@
         return `${row.address}/${row.size}`;
       },
       formatPool(row,column){
-        // if (this.pools){
-        //   return this.pools[row.poolId].description||'X';
-        // }
+        if (row.poolId in this.pools){
+            return this.pools[row.poolId].description||this.pools[row.poolId].name;
+        }
         return row.poolId;
       },
       formatStatus(row,column){

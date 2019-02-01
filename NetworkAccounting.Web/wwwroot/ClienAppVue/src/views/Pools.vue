@@ -18,24 +18,18 @@
                     el-button-group
                         el-button(size="mini" icon="el-icon-circle-plus" @click="dialogLeaseNetwork=true") New lease
                         el-button(size="mini" icon="el-icon-circle-plus" @click="dialogNetworkAdd=true") Add network
-                        <!--el-button(size="mini" icon="el-icon-edit") Add pool-->
-                        el-button(size="mini" icon="el-icon-circle-minus") Export
-                        el-button(size="mini" icon="el-icon-circle-minus") Import
-                        el-button(size="mini" icon="el-icon-circle-close") Find
                 pool-grid(:pools="pools")
-                <!--network-grid(:networks="networks" :pools="pools" @releaseNetwork="releaseNetwork")-->
-                network-lease(:visible="dialogLeaseNetwork" @onClose="dialogLeaseNetwork=false" :networks="networks" :pools="pools")
-                network-add(:visible="dialogNetworkAdd" @onClose="dialogNetworkAdd=false" :pools="pools")
         el-footer.footer
             h5 Dmitry Ryabykin
 </template>
 
 <script>
+  import BusApi from '../bus/BusApi';
+  
   import * as EL from '../ui'
   import NetworkGrid from '../components/table/NetworkGrid';
   import NetworkLease from '../forms/NetworkLease';
   import NetworkAdd from '../forms/NetworkAdd';
-  import Api from '../api/Api';
   import _ from 'lodash';
   import NavMenu from "../components/menu/NavMenu";
   import PoolGrid from "../components/table/PoolGrid";
@@ -63,30 +57,22 @@
       }
     },
     methods:{
-      releaseNetwork(id){
-        const _this=this;
-        this.$confirm('This will network release. Continue?', 'Warning', {
-          confirmButtonText: 'OK',
-          cancelButtonText: 'Cancel',
-          type: 'warning'
-        })
-        .then(()=>{
-            return new Api().releaseNetwork(id);  
-        })
-        .then(()=>{
-          _this.updateNetworks();
-        })
-      },
-      
       updateNetworks(){
-        new Api().getNetworks().then(networks=>{
-          this.networks=_.values(networks.data).filter(d=>d.status!==2);
-        });
+        BusApi.Combine(BusApi.events.GET_NETWORKS,BusApi.events.GET_POOLS);
       }
     },
     mounted() {
+      BusApi.$on(BusApi.events.DATA_NETWORKS,(networks)=>{
+        this.networks=_.values(networks).filter(d=>d.status!==2);
+      });
+      BusApi.$on(BusApi.events.DATA_POOLS,(pools)=>{
+        this.pools=pools;
+      });
       this.updateNetworks();
-      new Api().getPools().then(pools=>this.pools=pools.data);
+    },
+    beforeDestroy(){
+      BusApi.$off(BusApi.events.DATA_NETWORKS);
+      BusApi.$off(BusApi.events.DATA_POOLS);
     }
   }
 </script>

@@ -22,18 +22,18 @@ export default class Api {
     public leaseNetwork(network:{id:number,description:string}):Promise<any> {
         return this.transport.post(`/api/network/lease`,
             {Id:network.id,Description:network.description}
-        ).then(res=>res.data);
+        );
     }
     
     public getFreeNetwork({size,poolId,fromId}:{size:number,poolId:number,fromId:number}):Promise<any> {
-        return this.transport.post(`/api/network/find/`,
-            {size,poolId,fromId}
-        ).then(res=>{
-            return res.data.id;
-        });
+        if (fromId===null)
+            return this.transport.post(`/api/network/find/`,
+                {size,poolId,fromId}
+            );
+        return Promise.resolve({data:{id:fromId}});
     }
     
     public addNetwork(data:{address:string,size:number,poolId:number}):Promise<any>{
-        return this.transport.post(`/api/network`,data).then(res=>res.data);
+        return this.transport.post(`/api/network`,data);
     }
 }

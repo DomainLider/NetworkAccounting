@@ -1,9 +1,9 @@
 <template lang="pug">
     el-menu#side
-        el-menu-item(index="1")
+        el-menu-item(index="1" @click="$router.push('/')")
             i.el-icon-share
             span Networks
-        el-menu-item(index="2")
+        el-menu-item(index="2" @click="$router.push('/pools')")
             i.el-icon-menu
             span Pools
         el-menu-item(index="3")
