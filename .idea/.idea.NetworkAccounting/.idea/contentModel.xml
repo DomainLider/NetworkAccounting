@@ -203,6 +203,7 @@
             <e p="package.json" t="Include" />
             <e p="public" t="Include">
               <e p="favicon.ico" t="Include" />
+              <e p="favicon1.ico" t="Include" />
               <e p="index.html" t="Include" />
             </e>
             <e p="README.md" t="Include" />
