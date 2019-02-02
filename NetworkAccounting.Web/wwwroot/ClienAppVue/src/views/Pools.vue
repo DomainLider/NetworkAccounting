@@ -6,9 +6,6 @@
                     el-col(:span="8")
                         h2 Network Accounting
                     el-col.p5(:span="16")    
-                        <!--el-button(size="mini") Networks-->
-                        <!--el-button(size="mini") Pools-->
-                        <!--el-button(size="mini") Statistics-->
                         el-button(type="success" size="mini") Logout
         el-container         
             el-aside.w200
@@ -16,9 +13,10 @@
             el-main
                 .button-menu
                     el-button-group
-                        el-button(size="mini" icon="el-icon-circle-plus" @click="dialogLeaseNetwork=true") New lease
-                        el-button(size="mini" icon="el-icon-circle-plus" @click="dialogNetworkAdd=true") Add network
-                pool-grid(:pools="pools")
+                        el-button(size="mini" icon="el-icon-circle-plus" @click="dialogPoolAdd=true") Add Pool
+                        el-button(size="mini" icon="el-icon-circle-plus" @click="removePools") Remove pool
+                pool-grid(:pools="pools" @onSelectionChange="onSelectionPool")
+                pool-add(:visible="dialogPoolAdd" @onClose="dialogPoolAdd=false")
         el-footer.footer
             h5 Dmitry Ryabykin
 </template>
@@ -27,9 +25,7 @@
   import BusApi from '../bus/BusApi';
   
   import * as EL from '../ui'
-  import NetworkGrid from '../components/table/NetworkGrid';
-  import NetworkLease from '../forms/NetworkLease';
-  import NetworkAdd from '../forms/NetworkAdd';
+  import PoolAdd from '../forms/PoolAdd';
   import _ from 'lodash';
   import NavMenu from "../components/menu/NavMenu";
   import PoolGrid from "../components/table/PoolGrid";
@@ -38,27 +34,38 @@
       PoolGrid,
       NavMenu,
       ...EL,
-      NetworkGrid,
-      NetworkLease,
-      NetworkAdd,
+      PoolAdd
     },
     data(){
       return {
-        form:{
-          size:24,
-          description:'New network'
-        },
-        networks:[
-          
-        ],
         pools:{},
-        dialogLeaseNetwork:false,
+        selectedPools:[],
+        dialogPoolAdd:false,
         dialogNetworkAdd:false,
       }
     },
     methods:{
       updateNetworks(){
         BusApi.Combine(BusApi.events.GET_NETWORKS,BusApi.events.GET_POOLS);
+      },
+      
+      removePools(){
+        if (this.selectedPools.length>0){
+          this.$confirm(`This will ${this.selectedPools.length} pools removed. Continue?`, 'Warning', {
+            confirmButtonText: 'OK',
+            cancelButtonText: 'Cancel',
+            type: 'warning'
+          })
+            .then(() => {
+              for (const poolId of this.selectedPools)
+                BusApi.$emit(BusApi.events.DELETE_POOL, poolId);
+              this.selectedPools=[];
+            });
+        } 
+      },
+      
+      onSelectionPool(pools){
+        this.selectedPools = pools;
       }
     },
     mounted() {
@@ -72,7 +79,7 @@
         this.$notify({
           title: 'Error',
           message: `Error: ${error.message}`,
-          type: 'success',
+          type: 'error',
           duration: 0
         });
       });

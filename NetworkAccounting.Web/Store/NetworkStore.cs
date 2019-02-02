@@ -21,8 +21,8 @@ namespace NetworkAccounting.Web.Store
                     });
                 return networks;
             }
-        }
-                
+        }       
+        
         public virtual Network AddNetwork(ulong address,int size,int poolId,int? parent=null)
         {
             using (var db = CreateConnection())

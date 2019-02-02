@@ -86,7 +86,7 @@
         this.$notify({
           title: 'Error',
           message: `Error: ${error.message}`,
-          type: 'success',
+          type: 'error',
           duration: 0
         });
       });

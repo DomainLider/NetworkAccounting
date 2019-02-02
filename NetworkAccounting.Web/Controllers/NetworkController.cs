@@ -62,7 +62,16 @@ namespace NetworkAccounting.Web.Controllers
         [HttpPost] 
         public IActionResult Post([FromBody] AddNetwork network)
         {
-            return Json(_networkService.AddToPool(network));            
+            try
+            {
+                return Json(_networkService.AddToPool(network));
+            }
+            catch (Exception exc)
+            {
+                return BadRequest(exc.Message);
+            }
+                        
         }
+                
     }
 }

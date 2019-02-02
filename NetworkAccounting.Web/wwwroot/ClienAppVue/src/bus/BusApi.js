@@ -17,6 +17,10 @@ const events = {
   POST_ADD_NETWORK_OK:'POST_ADD_NETWORK_OK',
   GET_FREE_NETWORK:'GET_FREE_NETWORK',
   GET_FREE_NETWORK_OK:'GET_FREE_NETWORK_OK',
+  POST_ADD_POOL:'POST_ADD_POOL',
+  POST_ADD_POOL_OK:'POST_ADD_POOL_OK',
+  DELETE_POOL:'DELETE_POOL',
+  DELETE_POOL_OK:'DELETE_POOL_OK',
   ERROR: 'ERROR'
 };
 
@@ -35,6 +39,9 @@ bus.$on(events.POST_RELEASE, (id)=>PromiseWrapper(new Api().releaseNetwork(id).t
 bus.$on(events.GET_FREE_NETWORK,(data)=>PromiseWrapper(new Api().getFreeNetwork(data), events.GET_FREE_NETWORK_OK));
 bus.$on(events.POST_ADD_NETWORK,(data)=>PromiseWrapper(new Api().addNetwork(data),events.POST_ADD_NETWORK_OK));
 bus.$on(events.POST_LEASE,(data)=>PromiseWrapper(new Api().leaseNetwork(data),events.POST_LEASE_OK));
+bus.$on(events.POST_ADD_POOL,(data)=>PromiseWrapper(new Api().addPool(data),events.POST_ADD_POOL_OK));
+bus.$on(events.DELETE_POOL,(data)=>PromiseWrapper(new Api().removePool(data).then(()=>bus.$emit(events.GET_POOLS)),events.DELETE_POOL_OK));
+
 bus.$on(events.ERROR,(error)=>console.error(error.message));
 bus.events = events;
 

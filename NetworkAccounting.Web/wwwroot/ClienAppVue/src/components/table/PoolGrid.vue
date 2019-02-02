@@ -1,8 +1,10 @@
 <template lang="pug">
-        el-table(style="width:100%" :data="_pools" height="100%")
+        el-table(style="width:100%" :data="_pools" height="100%" @selection-change="handleSelectionChange")
+            el-table-column(type="selection" width="55")
             el-table-column(prop="id" label="id" sortable)
-            el-table-column(prop="description" label="Description" sortable)
             el-table-column(prop="name" label="Name")
+            el-table-column(prop="description" label="Description" sortable)
+            el-table-column(label="Networks" sortable)     
 </template>
 
 <script>
@@ -14,6 +16,9 @@
     props:['pools'],
     name: "PoolGrid",
     methods:{
+      handleSelectionChange(val){
+        this.$emit('onSelectionChange',val.map(v=>v.id));
+      }
     },
     computed:{
       _pools(){ return _.values(this.pools) }

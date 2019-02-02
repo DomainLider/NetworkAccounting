@@ -36,4 +36,16 @@ export default class Api {
     public addNetwork(data:{address:string,size:number,poolId:number}):Promise<any>{
         return this.transport.post(`/api/network`,data);
     }
+    
+    public addPool(data:{name:string,description:string}):Promise<any>{
+        debugger;
+        return this.transport.post(`/api/pool`,data);
+    }
+    
+    public removePool(id:number):Promise<any>{
+        return this.transport.delete(`/api/pool/${id}`);
+    }
+    // public removeNetwork(id:number):Promise<any> {
+    //     return this.transport.delete(`/api/network/${id}`);
+    // }
 }

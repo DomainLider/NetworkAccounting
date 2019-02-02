@@ -32,7 +32,17 @@ namespace NetworkAccounting.Web.Service
 
                 var bytes = ipNetwork.GetAddressBytes().Reverse().ToArray();
                 ulong address = BitConverter.ToUInt32(bytes, 0);
-                return FillUserAddress(_networkStore.AddNetwork(address, network.Size,network.PoolId));
+                var networks = _networkStore.ListNetworks().ToList();
+                //Проверка на пересечение сетей
+                if (networks.Count(n => n.NetworkAddress == address
+                                        || n.NetworkAddress < address &&
+                                        n.NetworkAddress + Math.Pow(2, 32-n.Size)-1 >= address
+                                        || n.NetworkAddress > address &&
+                                        n.NetworkAddress <= address+Math.Pow(2,32-network.Size)-1 ) == 0)
+                {
+                    return FillUserAddress(_networkStore.AddNetwork(address, network.Size,network.PoolId));
+                }
+                throw new ArgumentException($"Сеть пересекается с существующими или уже есть");
             }
 
             throw new ArgumentException($"Невозможно преобразовать {network.Address} в IP адрес");
@@ -80,7 +90,8 @@ namespace NetworkAccounting.Web.Service
                 int count = size - network.Size;
                 for (int idx = 0; idx < count; idx++)
                 {
-                    int parentId = network.Parent ?? network.Id;
+//                    int parentId = network.Parent ?? network.Id;
+                    int parentId = network.Id;
                     //TODO: transaction required
                     network.Status = NetworkStatus.Parent;
                     _networkStore.ChangeNetwork(network);
