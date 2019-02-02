@@ -1,5 +1,6 @@
 using System.Data;
-using System.Data.SQLite;
+//using System.Data.SQLite;
+using System.Data.SqlClient;
 
 namespace NetworkAccounting.Web.Store
 {
@@ -14,7 +15,8 @@ namespace NetworkAccounting.Web.Store
         
         protected IDbConnection CreateConnection()
         {
-            return new SQLiteConnection(connectionString);
+            return new SqlConnection(connectionString);
+//            return new SQLiteConnection(connectionString);
         }
     }
 }

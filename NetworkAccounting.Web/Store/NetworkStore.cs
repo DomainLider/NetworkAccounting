@@ -28,7 +28,7 @@ namespace NetworkAccounting.Web.Store
             using (var db = CreateConnection())
             {
                 db.Open();
-                int id=db.ExecuteScalar<int>("INSERT INTO network(NetworkAddress,Size,PoolId,Parent,Status) VALUES (@NetworkAddress,@Size,@PoolId,@Parent,0);SELECT last_insert_rowid();", new
+                int id=db.ExecuteScalar<int>("INSERT INTO network(NetworkAddress,Size,PoolId,Parent,Status) VALUES (@NetworkAddress,@Size,@PoolId,@Parent,0);SELECT @@IDENTITY;", new
                 {
                     NetworkAddress=address, Size=size, PoolId=poolId,Parent=parent
                 });

@@ -34,7 +34,7 @@ namespace NetworkAccounting.Web.Store
             using (var db = CreateConnection())
             {
                 db.Open();
-                int id=db.ExecuteScalar<int>("INSERT INTO pool(Name,Description) VALUES (@Name,@Description);SELECT last_insert_rowid();", new
+                int id=db.ExecuteScalar<int>("INSERT INTO pool(Name,Description) VALUES (@Name,@Description);SELECT @@IDENTITY;", new
                 {
                     pool.Name,
                     pool.Description

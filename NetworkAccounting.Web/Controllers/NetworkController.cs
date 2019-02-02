@@ -22,8 +22,15 @@ namespace NetworkAccounting.Web.Controllers
         
         [HttpGet]
         public IActionResult Get()
-        {            
-            return new JsonResult(_networkService.ListNetworks());
+        {
+            try
+            {
+                return new JsonResult(_networkService.ListNetworks());
+            }
+            catch (Exception exc)
+            {
+                return BadRequest(exc.Message);
+            }
         }
 
         [HttpGet("{id}")]
@@ -50,13 +57,28 @@ namespace NetworkAccounting.Web.Controllers
         [HttpPost("lease/")]
         public IActionResult LeaseNetwork([FromBody] Network network)
         {
-            return new JsonResult(_networkService.LeaseNetwork(network));
+            try
+            {
+                return new JsonResult(_networkService.LeaseNetwork(network));
+            }
+            catch (Exception exc)
+            {
+                return BadRequest(exc.Message);
+            }
         }
 
         [HttpPost("release/{id}")]
-        public void ReleaseNetwork(ulong id)
+        public IActionResult ReleaseNetwork(ulong id)
         {
-            _networkService.ReleaseNetwork(id);
+            try
+            {
+                _networkService.ReleaseNetwork(id);
+                return Ok();
+            }
+            catch (Exception exc)
+            {
+                return BadRequest(exc.Message);
+            }
         }
         
         [HttpPost] 
